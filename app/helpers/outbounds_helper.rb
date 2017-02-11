@@ -1,0 +1,2 @@
+module OutboundsHelper
+end

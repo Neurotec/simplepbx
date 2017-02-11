@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  greet_long_id: 1
+  greet_short_id: 1
+  invalid_sound_id: 1
+  exit_sound_id: 1
+  timeout: 1
+  inter_digit_timeout=2000: MyString
+  max_failures=integer: MyString
+  digit_len: 1
+  menu_top_digits: 1
+
+two:
+  greet_long_id: 1
+  greet_short_id: 1
+  invalid_sound_id: 1
+  exit_sound_id: 1
+  timeout: 1
+  inter_digit_timeout=2000: MyString
+  max_failures=integer: MyString
+  digit_len: 1
+  menu_top_digits: 1

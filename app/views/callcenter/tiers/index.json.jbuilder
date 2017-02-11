@@ -1,0 +1,1 @@
+json.array! @callcenter_tiers, partial: 'callcenter_tiers/callcenter_tier', as: :callcenter_tier

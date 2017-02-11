@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Extension profile:</strong>
+  <%= @extension_profile_action.extension_profile %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @extension_profile_action.order %>
+</p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @extension_profile_action.application %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @extension_profile_action.data %>
+</p>
+
+<%= link_to 'Edit', edit_extension_profile_action_path(@extension_profile_action) %> |
+<%= link_to 'Back', extension_profile_actions_path %>

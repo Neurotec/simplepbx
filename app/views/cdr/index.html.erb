@@ -1,0 +1,59 @@
+<h1>Cdr</h1>
+
+<%= simple_form_for(@cdr, url: cdr_index_path) do |f| %>
+<div class="row">
+  <div class="col-md-2">
+    <%= f.input :caller_id_name, value: @cdr.caller_id_name %>
+  </div>
+  <div class="col-md-2">
+    <%= f.input :caller_id_number, value: @cdr.caller_id_number %>
+  </div>
+  <div class="col-md-2">
+    <%= f.input :destination_number, value: @cdr.destination_number %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-1">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+</div>
+<% end %>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>FreeSWITCH</th>
+      <th>Caller ID Name</th>
+      <th>Caller ID Number</th>
+      <th>Destination</th>
+      <th>Start</th>
+      <th>Duration</th>
+      <th>Hangup Cause</th>
+      <th>Record</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cdrs.each do |cdr| %>
+    <tr>
+      <td><%= cdr.freeswitch %></td>
+      <td><%= cdr.caller_id_name %></td>
+      <td><%= cdr.caller_id_number %></td>
+      <td><%= cdr.destination_number %></td>
+      <td><%= cdr.start_time %></td>
+      <td><%= cdr.duration %></td>
+      <td><%= cdr.hangup_cause %></td>
+      <td>
+        <% if cdr.record_path.present? and !cdr.record_path.empty? %>
+        <audio preload="none" controls>
+          <source src="<%= cdr_play_path(cdr)%>" type="audio/x-wav"/>
+          </audio>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="mx-auto">
+    <%= paginate @cdrs%>
+</div>

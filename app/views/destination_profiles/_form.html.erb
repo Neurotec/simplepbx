@@ -1,0 +1,13 @@
+<%= simple_form_for(@destination_profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :condition_field %>
+    <%= f.input :condition_expression %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

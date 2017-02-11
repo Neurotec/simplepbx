@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Destination profile:</strong>
+  <%= @destination_profile_action.destination_profile %>
+</p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @destination_profile_action.application %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @destination_profile_action.data %>
+</p>
+
+<%= link_to 'Edit', edit_destination_profile_action_path(@destination_profile_action) %> |
+<%= link_to 'Back', destination_profile_actions_path %>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Outbounds</h1>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Endpoint</th>
+      <th>Name</th>
+      <th>Realm</th>
+      <th>Username</th>
+      <th>Register</th>
+      <th>CID Name</th>
+      <th>CID Number</th>
+      <th>Online?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outbounds.each do |outbound| %>
+      <tr scope="row">
+        <td><%= outbound.endpoint %></td>
+        <td><%= outbound.name %></td>
+        <td><%= outbound.realm %></td>
+        <td><%= outbound.username %></td>
+        <td><%= outbound.register %></td>
+        <td><%= outbound.cid_name %></td>
+        <td><%= outbound.cid_number %></td>
+        <td>
+          <% if outbound.online? %>
+          <%= fa_icon "arrow-circle-up"%>
+          <% else %>
+          <%= fa_icon "arrow-circle-down" %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', outbound %></td>
+        <td><%= link_to 'Edit', edit_outbound_path(outbound) %></td>
+        <td><%= link_to 'Destroy', outbound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Outbound', new_outbound_path %>

@@ -1,0 +1,69 @@
+<%= simple_form_for(@callcenter_queue) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.association :freeswitch %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :name %>
+      </div>
+      <div class="col-md-4">
+        <%= f.association :callcenter_queue_profile %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :strategy, as: :select, collection: Callcenter::Queue::STRATEGY %>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Strategy</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ring-all</td><td>Rings all agents simultaneously.</td>
+            </tr>
+            <tr>
+              <td>longest-idle-agent</td><td>Rings the agent who has been idle the longest taking into account tier level.</td>
+            </tr>
+            <tr>
+              <td>round-robin</td><td>Rings the agent in position but remember last tried agent.</td>
+            </tr>
+            <tr>
+              <td>top-down</td><td>Rings the agent in order position starting from 1 for every member.</td>
+            </tr>
+            <tr>
+              <td>agent-with-least-talk-time</td><td>Rings the agent with least talk time.</td>
+            </tr>
+            <tr>
+              <td>agent-with-fewest-calls</td><td>Rings the agent with fewest calls.</td>
+            </tr>
+            <tr>
+              <td>sequentially-by-agent-order</td><td>Rings agents sequentially by tier & order.</td>
+            </tr>
+            <tr>
+              <td>random</td><td>Rings agents in random order.</td>
+            </tr>
+            <tr>
+              <td>ring-progressively</td><td>Rings agents in the same way as top-down, but keeping the previous members ringing (it basically leads to ring-all in the end).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    </div>
+  </div>
+<% end %>

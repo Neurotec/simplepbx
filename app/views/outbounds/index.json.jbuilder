@@ -1,0 +1,1 @@
+json.array! @outbounds, partial: 'outbounds/outbound', as: :outbound

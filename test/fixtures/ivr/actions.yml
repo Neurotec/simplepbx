@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  menu: one
+  outbound_route: one
+  digits: 1
+
+two:
+  menu: two
+  outbound_route: two
+  digits: 1

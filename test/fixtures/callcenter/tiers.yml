@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  extension: one
+  callcenter_queue: one
+  level: 1
+  position: 1
+
+two:
+  extension: two
+  callcenter_queue: two
+  level: 1
+  position: 1

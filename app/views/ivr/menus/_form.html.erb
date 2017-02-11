@@ -1,0 +1,90 @@
+<%= simple_form_for(@ivr_menu) do |f| %>
+<%= f.error_notification %>
+
+<div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.association :freeswitch %>
+    <%= f.association :greet_long, collection: Resource::Object.from_user(current_user) %>
+    <%= f.association :greet_short, collection: Resource::Object.from_user(current_user) %>
+    <%= f.association:invalid_sound, collection: Resource::Object.from_user(current_user) %>
+    <%= f.association:exit_sound, collection: Resource::Object.from_user(current_user) %>
+    <%= f.input :timeout %>
+    <%= f.input :inter_digit_timeout %>
+    <%= f.input :max_failures %>
+    <%= f.input :digit_len %>
+    <%= f.input :menu_top_digits %>
+    <%= f.simple_fields_for(:ivr_actions) do |r| %>
+    <div class="row">
+    <div class="col-md-2">
+    <%= r.input :digits %>
+    </div>
+    <div class="col-md-6">
+    <%= r.association :outbound_route, input_html: {class: 'outbound-route'}, collection: [] %>
+    </div>
+    </div>
+    <% end %>
+    </div>
+    
+    <div class="form-actions">
+    <%= f.button :submit %>
+    </div>
+    <% end %>
+    
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var fs_select = $('#ivr_menu_freeswitch_id');
+            <% if params[:ivr_menu].present? %>
+            var params =  <%= params[:ivr_menu][:ivr_actions_attributes].to_a.map{|i| i[1]}.to_json.html_safe %>;
+            <% else %>
+            <% if @ivr_menu.present? %>
+            var params = <%= @ivr_menu.ivr_actions.to_a.to_json.html_safe %>;
+            <% else %>
+            var params = [];
+            <% end %>
+            <% end %>
+
+        fs_select.change(function(){
+            refresh_outbound_routes($(this).val(), params);
+        });
+        refresh_outbound_routes(fs_select.val(), params);
+    });
+
+
+function refresh_outbound_routes(fs_id, selected) {
+    $.getJSON('<%= outbound_routes_url%>?freeswitch_id=' + fs_id, function(data) {
+        var idxroute = -1;
+        $('.outbound-route').each(function(){
+            idxroute += 1;
+                var select = $(this);
+                $(this).html('');
+                var option = $('<option/>', {
+                    value: "",
+                    html: ""
+                });
+                option.appendTo(select);
+                $(data).each(function(idx, val){
+                    var active = false;
+
+                    if (selected != undefined && selected[idxroute] != undefined) {
+                        var outbound_route_id = parseInt(selected[idxroute]["outbound_route_id"]);
+                        if (val.id == outbound_route_id) {
+                            console.log("selected");
+                            active = true;
+                        }
+                        
+                        if (selected[idxroute]["digits"] != "") {
+                            var digits = $('ivr_menu_ivr_actions_attributes_'+idxroute+'_digits');
+                            digits.val(selected[idxroute]['digits']);
+                        }
+                    }
+                    var option = $('<option/>', {
+                        value: val.id,
+                        html: val.name,
+                        selected: active
+                    });
+                    option.appendTo(select);
+                });
+            });
+        });
+    }
+</script>

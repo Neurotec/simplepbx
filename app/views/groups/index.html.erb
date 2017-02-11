@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Groups</h1>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Endpoint</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr scope="row">
+        <td><%= group.endpoint %></td>
+        <td><%= group.name %></td>
+        <td><%= link_to 'Show', group %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to 'New Group', new_group_path %>
+  </div>
+  <div class="col-md-10">
+    <%= paginate @groups %>
+  </div>
+</div>

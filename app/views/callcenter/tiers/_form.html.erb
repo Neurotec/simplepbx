@@ -1,0 +1,14 @@
+<%= simple_form_for(@callcenter_tier) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :extension %>
+    <%= f.association :callcenter_queue %>
+    <%= f.input :level %>
+    <%= f.input :position %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

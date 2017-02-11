@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  endpoint: one
+  name: MyString
+  realm: MyString
+  username: MyString
+  password: MyString
+  register: false
+  cidfrom: false
+  codecs: MyString
+  proxy: MyString
+
+two:
+  endpoint: two
+  name: MyString
+  realm: MyString
+  username: MyString
+  password: MyString
+  register: false
+  cidfrom: false
+  codecs: MyString
+  proxy: MyString

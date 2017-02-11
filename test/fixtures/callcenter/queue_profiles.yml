@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  name: MyString
+  moh_sound: MyString
+  time_base_score: MyString
+  tier_rules_apply: false
+  tier_rule_wait_second: 1
+  tier_rule_wait_multiply_level: false
+  tier_rule_no_agent_no_wait: false
+  discard_abandoned_after: 1
+  abandoned_resume_allowed: false
+  max_wait_time: 1
+  max_wait_time_with_no_agent: 1
+
+two:
+  type: 
+  name: MyString
+  moh_sound: MyString
+  time_base_score: MyString
+  tier_rules_apply: false
+  tier_rule_wait_second: 1
+  tier_rule_wait_multiply_level: false
+  tier_rule_no_agent_no_wait: false
+  discard_abandoned_after: 1
+  abandoned_resume_allowed: false
+  max_wait_time: 1
+  max_wait_time_with_no_agent: 1

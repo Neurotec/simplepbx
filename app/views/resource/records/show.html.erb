@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Freeswitch:</strong>
+  <%= @resource_record.freeswitch %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @resource_record.name %>
+</p>
+
+<%= link_to 'Edit', edit_resource_record_path(@resource_record) %> |
+<%= link_to 'Back', resource_records_path %>

@@ -1,0 +1,1 @@
+json.array! @destination_profile_actions, partial: 'destination_profile_actions/destination_profile_action', as: :destination_profile_action

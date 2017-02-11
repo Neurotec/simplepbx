@@ -1,0 +1,12 @@
+enviar por post:
+variable_%(2000=4000)
+
+Started POST "/freeswitch_configurator/dialplan.xml" for 127.0.0.1 at 2017-02-05 12:41:51 -0500
+  
+Rack::QueryParser::InvalidParameterError (invalid %-encoding (variable_%(2000)):
+  
+rack (2.0.1) lib/rack/query_parser.rb:72:in `rescue in parse_nested_query'
+rack (2.0.1) lib/rack/query_parser.rb:61:in `parse_nested_query'
+rack (2.0.1) lib/rack/request.rb:468:in `parse_query'
+rack (2.0.1) lib/rack/request.rb:343:in `POST'
+

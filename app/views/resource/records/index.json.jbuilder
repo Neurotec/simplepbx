@@ -1,0 +1,1 @@
+json.array! @resource_records, partial: 'resource_records/resource_record', as: :resource_record

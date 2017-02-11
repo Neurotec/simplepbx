@@ -1,0 +1,19 @@
+<%= simple_form_for(@freeswitch) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input  :name %>
+    <%= f.input :host %>
+    <%= f.input :event_socket_port %>
+    <%= f.input :event_socket_password %>
+    <%= f.input :xml_rpc_realm %>
+    <%= f.input :xml_rpc_user %>
+    <%= f.input :xml_rpc_pass %>
+    <%= f.input :xml_rpc_port %>
+    <%= f.input :record_public_user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

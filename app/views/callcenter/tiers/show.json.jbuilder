@@ -1,0 +1,1 @@
+json.partial! "callcenter_tiers/callcenter_tier", callcenter_tier: @callcenter_tier

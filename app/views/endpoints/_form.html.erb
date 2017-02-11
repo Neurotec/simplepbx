@@ -1,0 +1,14 @@
+<%= simple_form_for(@endpoint) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :freeswitch, collection: Freeswitch.from_user(current_user) %>
+    <%= f.input :domain %>
+    <%= f.input :address %>
+    <%= f.input :port %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

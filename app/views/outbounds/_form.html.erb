@@ -1,0 +1,21 @@
+<%= simple_form_for(@outbound) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :endpoint, collection: Endpoint.from_user(current_user) %>
+    <%= f.input :name %>
+    <%= f.input :realm %>
+    <%= f.input :username %>
+    <%= f.input :password, as: :string %>
+    <%= f.input :register %>
+    <%= f.input :cidfrom %>
+    <%= f.input :codecs %>
+    <%= f.input :proxy %>
+    <%= f.input :cid_name %>
+    <%= f.input :cid_number %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

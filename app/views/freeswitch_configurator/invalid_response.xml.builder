@@ -1,0 +1,2 @@
+xml.result status: @msg
+

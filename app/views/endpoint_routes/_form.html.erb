@@ -1,0 +1,22 @@
+<%= simple_form_for(@endpoint_route) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.association :endpoint %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :destination_number %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :position %>
+      </div>
+    </div>
+    <%= f.association :outbound_routes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

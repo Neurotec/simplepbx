@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Destination Profile Actions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Destination profile</th>
+      <th>Application</th>
+      <th>Data</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @destination_profile_actions.each do |destination_profile_action| %>
+      <tr>
+        <td><%= destination_profile_action.destination_profile %></td>
+        <td><%= destination_profile_action.application %></td>
+        <td><%= destination_profile_action.data %></td>
+        <td><%= link_to 'Show', destination_profile_action %></td>
+        <td><%= link_to 'Edit', edit_destination_profile_action_path(destination_profile_action) %></td>
+        <td><%= link_to 'Destroy', destination_profile_action, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Destination Profile Action', new_destination_profile_action_path %>

@@ -1,0 +1,1 @@
+json.array! @callcenter_queues, partial: 'callcenter_queues/callcenter_queue', as: :callcenter_queue

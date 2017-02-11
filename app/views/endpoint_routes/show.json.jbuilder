@@ -1,0 +1,1 @@
+json.partial! "endpoint_routes/endpoint_route", endpoint_route: @endpoint_route

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @destination_profile.name %>
+</p>
+
+<p>
+  <strong>Condition field:</strong>
+  <%= @destination_profile.condition_field %>
+</p>
+
+<p>
+  <strong>Condition expression:</strong>
+  <%= @destination_profile.condition_expression %>
+</p>
+
+<%= link_to 'Edit', edit_destination_profile_path(@destination_profile) %> |
+<%= link_to 'Back', destination_profiles_path %>

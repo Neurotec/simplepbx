@@ -1,0 +1,392 @@
+{
+   "variables" : {
+      "sip_via_port" : "5064",
+      "rtp_audio_out_dtmf_packet_count" : "0",
+      "sip_req_host" : "127.0.0.1",
+      "sip_network_port" : "5064",
+      "sip_to_user" : "1001",
+      "billusec" : "480018",
+      "sip_contact_port" : "5064",
+      "local_media_ip" : "127.0.0.1",
+      "progress_uepoch" : "1486325862429384",
+      "start_uepoch" : "1486325861309438",
+      "rtp_use_codec_rate" : "8000",
+      "end_stamp" : "2017-02-05%2015%3A17%3A43",
+      "hangup_cause" : "NORMAL_CLEARING",
+      "progress_media_uepoch" : "1486325863129393",
+      "hold_accum_ms" : "0",
+      "hold_accum_seconds" : "0",
+      "progress_media_epoch" : "1486325863",
+      "read_codec" : "PCMU",
+      "progress_epoch" : "1486325862",
+      "endpoint_disposition" : "ANSWER",
+      "local_media_port" : "31828",
+      "sip_from_tag" : "424ff1ab-525b-4a48-a0be-4ed51ead2327",
+      "last_hold_epoch" : "0",
+      "rtp_use_ssrc" : "2361015637",
+      "sip_cseq" : "3066",
+      "dialed_extension" : "1001",
+      "rtp_audio_in_flush_packet_count" : "0",
+      "sip_from_user" : "1002",
+      "rtp_audio_in_raw_bytes" : "0",
+      "answer_epoch" : "1486325863",
+      "dtmf_type" : "rfc2833",
+      "remote_media_ip" : "192.168.1.9",
+      "flow_billsec" : "2",
+      "rtp_use_timer_name" : "soft",
+      "remote_media_port" : "22706",
+      "answer_uepoch" : "1486325863129393",
+      "last_hold_uepoch" : "0",
+      "last_bridge_to" : "3b93676c-fa67-4de6-a23b-5e1359dc8c1c",
+      "bridge_hangup_cause" : "NORMAL_CLEARING",
+      "rtp_audio_in_dtmf_packet_count" : "0",
+      "rtp_use_codec_name" : "PCMU",
+      "mduration" : "2300",
+      "sip_network_ip" : "127.0.0.1",
+      "rtp_audio_in_jitter_min_variance" : "0.00",
+      "sip_req_user" : "1001",
+      "direction" : "inbound",
+      "advertised_media_ip" : "127.0.0.1",
+      "last_bridge_hangup_cause" : "NORMAL_CLEARING",
+      "progress_mediausec" : "1819955",
+      "rtp_remote_audio_rtcp_port" : "22707",
+
+      "waitusec" : "1819955",
+      "progress_mediasec" : "2",
+      "progressmsec" : "1120",
+      "rtp_audio_out_packet_count" : "0",
+      "uduration" : "2299973",
+      "waitmsec" : "1820",
+      "rtp_audio_rtcp_octet_count" : "0",
+      "hangup_cause_q850" : "16",
+      "signal_bond" : "3b93676c-fa67-4de6-a23b-5e1359dc8c1c",
+      "waitsec" : "2",
+      "sip_from_host" : "127.0.0.1",
+      "dialed_domain" : "prueba",
+      "rtp_audio_in_jitter_max_variance" : "0.00",
+      "resurrect_uepoch" : "0",
+      "sip_local_network_addr" : "127.0.0.1",
+      "bridge_uepoch" : "1486325863129393",
+      "sip_received_port" : "5064",
+      "rtp_2833_recv_payload" : "101",
+      "rtp_audio_out_cng_packet_count" : "0",
+      "start_epoch" : "1486325861",
+      "rtp_audio_out_media_packet_count" : "0",
+      "sip_via_rport" : "5064",
+      "rtp_audio_out_media_bytes" : "0",
+      "call_uuid" : "ced40ab2-047d-4ed8-af6d-d8977e852bfb",
+      "resurrect_epoch" : "0",
+      "last_sent_callee_id_number" : "1001",
+      "sofia_profile_name" : "b8cce654-8a9f-4a8e-a829-cf6042881e03",
+      "profile_start_uepoch" : "1486325861309438",
+      "sip_to_host" : "127.0.0.1",
+      "billsec" : "0",
+      "sip_hangup_phrase" : "OK",
+      "progressusec" : "1119946",
+      "recovery_profile_name" : "b8cce654-8a9f-4a8e-a829-cf6042881e03",
+      "rtp_audio_in_packet_count" : "0",
+      "sip_acl_authed_by" : "b8cce654-8a9f-4a8e-a829-cf6042881e03",
+      "rtp_audio_out_raw_bytes" : "0",
+      "digits_dialed" : "none",
+      "write_rate" : "8000",
+      "rtp_audio_in_largest_jb_size" : "0",
+      "progress_mediamsec" : "1820",
+      "rtp_use_codec_string" : "OPUS,PCMA,PCMU,G729",
+      "end_epoch" : "1486325863",
+      "bridge_uuid" : "3b93676c-fa67-4de6-a23b-5e1359dc8c1c",
+      "rtp_audio_in_mean_interval" : "0.00",
+      "sip_received_ip" : "127.0.0.1",
+      "flow_billmsec" : "2300",
+      "progresssec" : "1",
+      "flow_billusec" : "2299973",
+      "answerusec" : "1819955",
+      "sip_hangup_disposition" : "send_bye",
+      "DIALSTATUS" : "SUCCESS",
+      "profile_start_epoch" : "1486325861",
+      "dialed_user" : "1001",
+      "sip_to_tag" : "jFypH223t6jeS",
+      "uuid" : "ced40ab2-047d-4ed8-af6d-d8977e852bfb",
+      "current_application" : "bridge",
+      "write_codec" : "PCMU",
+      "sip_from_user_stripped" : "1002",
+      "sip_via_protocol" : "udp",
+      "rtp_audio_in_jitter_loss_rate" : "0.00",
+      "audio_media_flow" : "sendrecv",
+      "originate_disposition" : "SUCCESS",
+      "rtp_audio_in_jitter_packet_count" : "0",
+      "sip_authorized" : "true",
+      "original_read_codec" : "PCMU",
+      "rtp_audio_rtcp_packet_count" : "0",
+      "session_id" : "21",
+      "read_rate" : "8000",
+      "max_forwards" : "70",
+      "sip_contact_user" : "1002",
+      "rtp_use_pt" : "0",
+      "rtp_audio_in_skip_packet_count" : "24",
+      "rtp_audio_in_flaw_total" : "0",
+      "duration" : "2",
+      "rtp_audio_recv_pt" : "0",
+      "sip_via_host" : "127.0.0.1",
+      "rtp_audio_in_media_bytes" : "0",
+      "rtp_2833_send_payload" : "101",
+      "rtp_audio_in_mos" : "4.50",
+      "sip_contact_host" : "127.0.0.1",
+      "export_vars" : "dialed_extension",
+      "last_app" : "bridge",
+      "original_read_rate" : "8000",
+      "billmsec" : "480",
+      "rtp_audio_in_jitter_burst_rate" : "0.00",
+      "rtp_audio_in_quality_percentage" : "100.00",
+      "rtp_audio_in_cng_packet_count" : "0",
+      "rtp_audio_out_skip_packet_count" : "0",
+      "bridge_epoch" : "1486325863",
+      "sip_call_id" : "b9bcafad-3f90-4250-924b-4be57fe70c4d",
+      "hangup_after_bridge" : "true",
+      "rtp_audio_in_media_packet_count" : "0",
+      "end_uepoch" : "1486325863609411",
+      "hold_accum_usec" : "0",
+      "video_media_flow" : "sendrecv",
+      "rtp_use_codec_channels" : "1",
+      "answersec" : "2",
+      "domain_name" : "prueba",
+      "answermsec" : "1820",
+      "rtp_use_codec_ptime" : "20"
+   },
+   "app_log" : {
+      "applications" : [
+         {
+            "app_name" : "set",
+            "app_data" : "domain_name=prueba",
+            "app_stamp" : "1486325862059045"
+         },
+         {
+            "app_data" : "dialed_extension=1001",
+            "app_name" : "export",
+            "app_stamp" : "1486325862059513"
+         },
+         {
+            "app_stamp" : "1486325862059977",
+            "app_name" : "bind_meta_app",
+            "app_data" : "1 b s execute_extension::dx XML features"
+         },
+         {
+            "app_name" : "bind_meta_app",
+            "app_data" : "2 b s record_session::/var/lib/freeswitch/recordings/1002.2017-02-05-15-17-42.wav",
+            "app_stamp" : "1486325862060563"
+         },
+         {
+            "app_data" : "3 b s execute_extension::cf XML features",
+            "app_name" : "bind_meta_app",
+            "app_stamp" : "1486325862060986"
+         },
+         {
+            "app_stamp" : "1486325862061441",
+            "app_data" : "4 b s execute_extension::att_xfer XML features",
+            "app_name" : "bind_meta_app"
+         },
+         {
+            "app_name" : "set",
+            "app_stamp" : "1486325862061909"
+         },
+         {
+            "app_data" : "transfer_ringback=local_stream://moh",
+            "app_name" : "set",
+            "app_stamp" : "1486325862062370"
+         },
+         {
+            "app_stamp" : "1486325862062852",
+            "app_name" : "set",
+            "app_data" : "hangup_after_bridge=true"
+         },
+         {
+            "app_data" : "insert/prueba-call_return/1001/1002",
+            "app_name" : "hash",
+            "app_stamp" : "1486325862063339"
+         },
+         {
+            "app_name" : "hash",
+            "app_data" : "insert/prueba-last_dial_ext/1001/ced40ab2-047d-4ed8-af6d-d8977e852bfb",
+            "app_stamp" : "1486325862063813"
+         },
+         {
+            "app_stamp" : "1486325862064450",
+            "app_name" : "hash",
+            "app_data" : "insert/prueba-last_dial_ext/global/ced40ab2-047d-4ed8-af6d-d8977e852bfb"
+         },
+         {
+            "app_stamp" : "1486325862064934",
+            "app_name" : "bridge",
+            "app_data" : "user/1001@prueba"
+         }
+      ]
+   },
+   "channel_data" : {
+      "flags" : "0=1;1=1;3=1;20=1;37=1;38=1;40=1;43=1;48=1;53=1;94=1;111=1;112=1;121=1",
+      "state" : "CS_REPORTING",
+      "caps" : "1=1;2=1;3=1;4=1;5=1;6=1",
+      "direction" : "inbound",
+      "state_number" : "11"
+   },
+   "callflow" : [
+      {
+         "extension" : {
+            "name" : "1001",
+            "applications" : [
+               {
+                  "app_name" : "set",
+                  "app_data" : "domain_name=prueba"
+               },
+               {
+                  "app_data" : "dialed_extension=1001",
+                  "app_name" : "export"
+               },
+               {
+                  "app_name" : "bind_meta_app",
+                  "app_data" : "1 b s execute_extension::dx XML features"
+               },
+               {
+                  "app_name" : "bind_meta_app"
+               },
+               {
+                  "app_name" : "bind_meta_app",
+                  "app_data" : "3 b s execute_extension::cf XML features"
+               },
+               {
+                  "app_data" : "4 b s execute_extension::att_xfer XML features",
+                  "app_name" : "bind_meta_app"
+               },
+               {
+                  "app_data" : "${us-ring}",
+                  "app_name" : "set"
+               },
+               {
+                  "app_data" : "transfer_ringback=local_stream://moh",
+                  "app_name" : "set"
+               },
+               {
+                  "app_name" : "set",
+                  "app_data" : "hangup_after_bridge=true"
+               },
+               {
+                  "app_data" : "insert/${domain_name}-call_return/${dialed_extension}/${caller_id_number}",
+                  "app_name" : "hash"
+               },
+               {
+                  "app_data" : "insert/${domain_name}-last_dial_ext/${dialed_extension}/${uuid}",
+                  "app_name" : "hash"
+               },
+               {
+                  "app_data" : "insert/${domain_name}-last_dial_ext/global/${uuid}",
+                  "app_name" : "hash"
+               },
+               {
+                  "app_data" : "user/${dialed_extension}@${domain_name}",
+                  "app_name" : "bridge"
+               }
+            ],
+            "number" : "1001"
+         },
+         "dialplan" : "XML",
+         "profile_index" : "1",
+         "caller_profile" : {
+            "rdnis" : "",
+            "caller_id_number" : "1002",
+            "network_addr" : "127.0.0.1",
+            "ani" : "1002",
+            "caller_id_name" : "1002",
+            "context" : "b8cce654-8a9f-4a8e-a829-cf6042881e03",
+            "source" : "mod_sofia",
+            "username" : "1002",
+            "uuid" : "ced40ab2-047d-4ed8-af6d-d8977e852bfb",
+            "aniii" : "",
+            "destination_number" : "1001",
+            "chan_name" : "sofia/b8cce654-8a9f-4a8e-a829-cf6042881e03/1002@127.0.0.1",
+            "dialplan" : "XML",
+            "originatee" : {
+               "originatee_caller_profiles" : [
+                  {
+                     "uuid" : "3b93676c-fa67-4de6-a23b-5e1359dc8c1c",
+                     "username" : "1002",
+                     "source" : "mod_sofia",
+                     "dialplan" : "XML",
+                     "chan_name" : "sofia/b8cce654-8a9f-4a8e-a829-cf6042881e03/1001@127.0.0.1:5063",
+                     "destination_number" : "1001",
+                     "aniii" : "",
+                     "network_addr" : "127.0.0.1",
+                     "caller_id_number" : "1002",
+                     "rdnis" : "",
+                     "context" : "b8cce654-8a9f-4a8e-a829-cf6042881e03",
+                     "caller_id_name" : "1002",
+                     "ani" : "1002"
+                  },
+                  {
+                     "username" : "1002",
+                     "uuid" : "3b93676c-fa67-4de6-a23b-5e1359dc8c1c",
+                     "source" : "mod_sofia",
+                     "dialplan" : "XML",
+                     "chan_name" : "sofia/b8cce654-8a9f-4a8e-a829-cf6042881e03/1001@127.0.0.1:5063",
+                     "destination_number" : "1001",
+                     "aniii" : "",
+                     "network_addr" : "127.0.0.1",
+                     "caller_id_number" : "1002",
+                     "rdnis" : "",
+                     "context" : "b8cce654-8a9f-4a8e-a829-cf6042881e03",
+                     "ani" : "1002",
+                     "caller_id_name" : "1002"
+                  }
+               ]
+            }
+         },
+         "times" : {
+            "progress_time" : "1486325862429384",
+            "profile_created_time" : "1486325861309438",
+            "hold_accum_time" : "0",
+            "transfer_time" : "0",
+            "created_time" : "1486325861309438",
+            "answered_time" : "1486325863129393",
+            "hangup_time" : "1486325863609411",
+            "bridged_time" : "1486325863129393",
+            "progress_media_time" : "1486325863129393",
+            "resurrect_time" : "0",
+            "last_hold_time" : "0"
+         }
+      }
+   ],
+   "callStats" : {
+      "audio" : {
+         "inbound" : {
+            "jitter_min_variance" : 0,
+            "largest_jb_size" : 0,
+            "mos" : 4.5,
+            "flush_packet_count" : 0,
+            "cng_packet_count" : 0,
+            "jitter_burst_rate" : 0,
+            "packet_count" : 0,
+            "flaw_total" : 0,
+            "mean_interval" : 0,
+            "raw_bytes" : 0,
+            "jitter_max_variance" : 0,
+            "skip_packet_count" : 24,
+            "jitter_packet_count" : 0,
+            "media_bytes" : 0,
+            "media_packet_count" : 0,
+            "quality_percentage" : 100,
+            "dtmf_packet_count" : 0,
+            "jitter_loss_rate" : 0
+         },
+         "outbound" : {
+            "skip_packet_count" : 0,
+            "raw_bytes" : 0,
+            "rtcp_octet_count" : 0,
+            "packet_count" : 0,
+            "media_packet_count" : 0,
+            "dtmf_packet_count" : 0,
+            "cng_packet_count" : 0,
+            "rtcp_packet_count" : 0,
+            "media_bytes" : 0
+         }
+      }
+   },
+   "core-uuid" : "0fc12e5f-a160-4b4d-a059-a511547b7a64",
+   "switchname" : "monda"
+}

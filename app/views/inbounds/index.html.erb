@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inbounds</h1>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Endpoint</th>
+      <th>Name</th>
+      <th>Host</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Register</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inbounds.each do |inbound| %>
+      <tr scope="row">
+        <td><%= inbound.endpoint %></td>
+        <td><%= inbound.name %></td>
+        <td><%= inbound.host %></td>
+        <td><%= inbound.username %></td>
+        <td><%= inbound.password %></td>
+        <td><%= inbound.register %></td>
+        <td><%= link_to 'Show', inbound %></td>
+        <td><%= link_to 'Edit', edit_inbound_path(inbound) %></td>
+        <td><%= link_to 'Destroy', inbound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to 'New Inbound', new_inbound_path %>
+  </div>
+  <div class="col-md-10">
+    <%= paginate @inbounds %>
+  </div>
+</div>

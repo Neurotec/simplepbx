@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  freeswitch: one
+  name: MyString
+  path: MyString
+
+two:
+  freeswitch: two
+  name: MyString
+  path: MyString

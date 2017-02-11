@@ -1,0 +1,1 @@
+json.partial! "freeswitches/freeswitch", freeswitch: @freeswitch

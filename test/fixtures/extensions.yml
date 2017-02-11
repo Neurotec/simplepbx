@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  endpoint: one
+  username: MyString
+  password: MyString
+  vmpassword: 1
+  cid_name: MyString
+  location: MyString
+  extension_profile: one
+
+two:
+  endpoint: two
+  username: MyString
+  password: MyString
+  vmpassword: 1
+  cid_name: MyString
+  location: MyString
+  extension_profile: two

@@ -1,0 +1,1 @@
+json.partial! "callcenter_queues/callcenter_queue", callcenter_queue: @callcenter_queue

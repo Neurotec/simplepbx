@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Greet long:</strong>
+  <%= @ivr_menu.greet_long %>
+</p>
+
+<p>
+  <strong>Greet short:</strong>
+  <%= @ivr_menu.greet_short %>
+</p>
+
+<p>
+  <strong>Invalid sound:</strong>
+  <%= @ivr_menu.invalid_sound %>
+</p>
+
+<p>
+  <strong>Exit sound:</strong>
+  <%= @ivr_menu.exit_sound %>
+</p>
+
+<p>
+  <strong>Timeout:</strong>
+  <%= @ivr_menu.timeout %>
+</p>
+
+<p>
+  <strong>Inter digit timeout:</strong>
+  <%= @ivr_menu.inter_digit_timeout %>
+</p>
+
+<p>
+  <strong>Max failures:</strong>
+  <%= @ivr_menu.max_failures %>
+</p>
+
+<p>
+  <strong>Digit len:</strong>
+  <%= @ivr_menu.digit_len %>
+</p>
+
+<p>
+  <strong>Menu top digits:</strong>
+  <%= @ivr_menu.menu_top_digits %>
+</p>
+
+<p>
+  <strong>Actions:</strong>
+  <ul>
+    <% @ivr_menu.ivr_actions.reject{|r| !r.outbound_route.present?}.each do |action| %>
+    <li><%= action %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_ivr_menu_path(@ivr_menu) %> |
+<%= link_to 'Back', ivr_menus_path %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Callcenter Queues</h1>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>FreeSWITCH</th>
+      <th>Name</th>
+      <th>Strategy</th>
+      <th>Callcenter queue profile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @callcenter_queues.each do |callcenter_queue| %>
+    <tr scope="row">
+      <td><%= callcenter_queue.freeswitch %></td>
+      <td><%= callcenter_queue.name %></td>
+      <td><%= callcenter_queue.strategy %></td>
+      <td><%= callcenter_queue.callcenter_queue_profile %></td>
+      <td><%= link_to 'Show', callcenter_queue %></td>
+      <td><%= link_to 'Edit', edit_callcenter_queue_path(callcenter_queue) %></td>
+      <td><%= link_to 'Destroy', callcenter_queue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to 'New Callcenter Queue', new_callcenter_queue_path %>
+  </div>
+  <div class="col-md-10">
+    <%= paginate @callcenter_queues %>
+  </div>
+</div>

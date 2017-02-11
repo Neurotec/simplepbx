@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @freeswitch.host %>
+</p>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Public Key</h4>
+        <p class="card-text"><%= @freeswitch.record_public_key %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_freeswitch_path(@freeswitch) %> |
+<%= link_to 'Back', freeswitches_path %>

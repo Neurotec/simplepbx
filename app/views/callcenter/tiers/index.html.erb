@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Callcenter Tiers</h1>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Extension</th>
+      <th>Callcenter queue</th>
+      <th>Level</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @callcenter_tiers.each do |callcenter_tier| %>
+      <tr scope="row">
+        <td><%= callcenter_tier.extension %></td>
+        <td><%= callcenter_tier.callcenter_queue %></td>
+        <td><%= callcenter_tier.level %></td>
+        <td><%= callcenter_tier.position %></td>
+        <td><%= link_to 'Show', callcenter_tier %></td>
+        <td><%= link_to 'Edit', edit_callcenter_tier_path(callcenter_tier) %></td>
+        <td><%= link_to 'Destroy', callcenter_tier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to 'New Callcenter Tier', new_callcenter_tier_path %>
+  </div>
+  <div class="col-md-10">
+    <%= paginate @callcenter_tiers %>
+  </div>
+</div>
+       

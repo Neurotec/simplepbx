@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Extension Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @extension_profiles.each do |extension_profile| %>
+      <tr>
+        <td><%= extension_profile.name %></td>
+        <td><%= link_to 'Show', extension_profile %></td>
+        <td><%= link_to 'Edit', edit_extension_profile_path(extension_profile) %></td>
+        <td><%= link_to 'Destroy', extension_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Extension Profile', new_extension_profile_path %>

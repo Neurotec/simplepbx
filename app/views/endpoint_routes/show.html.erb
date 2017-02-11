@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Endpoint:</strong>
+  <%= @endpoint_route.endpoint %>
+</p>
+
+<p>
+  <strong>Destination number:</strong>
+  <%= @endpoint_route.destination_number %>
+</p>
+
+<p>
+  <strong>Route(s):</strong>
+  <ul>
+    <% @endpoint_route.outbound_routes.each do |r| %>
+    <li> <%= r.to_s %></li>
+    <% end %>
+  </ul>
+
+</p>
+
+<%= link_to 'Edit', edit_endpoint_route_path(@endpoint_route) %> |
+<%= link_to 'Back', endpoint_routes_path %>

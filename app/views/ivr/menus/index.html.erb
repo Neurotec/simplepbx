@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ivr Menus</h1>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Freeswitch</th>
+      <th>Name</th>
+      <th>Greet long</th>
+      <th>Greet short</th>
+      <th>Invalid sound</th>
+      <th>Exit sound</th>
+      <th>Timeout</th>
+      <th>Inter digit timeout</th>
+      <th>Max failures</th>
+      <th>Digit len</th>
+      <th>Menu top digits</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ivr_menus.each do |ivr_menu| %>
+    <tr scope="row">
+      <td><%= ivr_menu.freeswitch %></td>
+      <td><%= ivr_menu.greet_long %></td>
+      <td><%= ivr_menu.greet_short %></td>
+      <td><%= ivr_menu.invalid_sound %></td>
+      <td><%= ivr_menu.exit_sound %></td>
+      <td><%= ivr_menu.timeout %></td>
+      <td><%= ivr_menu.inter_digit_timeout %></td>
+      <td><%= ivr_menu.max_failures %></td>
+      <td><%= ivr_menu.digit_len %></td>
+      <td><%= ivr_menu.menu_top_digits %></td>
+      <td><%= link_to 'Show', ivr_menu %></td>
+      <td><%= link_to 'Edit', edit_ivr_menu_path(ivr_menu) %></td>
+      <td><%= link_to 'Destroy', ivr_menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to 'New Ivr Menu', new_ivr_menu_path %>
+  </div>
+  <div class="col-md-10">
+    <%= paginate @ivr_menus %>
+  </div>
+</div>

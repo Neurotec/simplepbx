@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  freeswitch: one
+  address: MyString
+  port: 1
+
+two:
+  freeswitch: two
+  address: MyString
+  port: 1

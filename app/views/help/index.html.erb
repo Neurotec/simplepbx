@@ -1,0 +1,77 @@
+
+<div class="container" style="margin: 0 auto; max-width: 800px">
+<h1 class="text-center">SimplePBX</h1>
+
+<p class="text-center">A useful multi FreeSWITCH platform administration.</p>
+
+  <div class="section">
+    <h2>Devices</h2>
+    <h3>Extensions</h3>
+    <p>
+      Create extensions for user connections.
+    </p>
+
+    <p>
+      <b>Extension Profiles</b> handle the kind of extension and it's actions
+    </p>
+    <h3>Groups</h3>
+    <h3>Extensions in Groups</h3>
+  </div>
+  <hr/>
+  <div class="section">
+    <h2>Routing</h2>
+    <h3>General</h3>
+    <p>
+      Here we handle the routing of the call write a valid expression match a digit ex: ^(.+)$
+    </p>
+    <p>
+      If we select <b>outbound destination</b> can be:
+      <ul>
+        <li>Outbound</li>
+        <li>Extension</li>
+        <li>Group</li>
+        <li>Callecenter::Queue</li>
+        <li>Ivr::Menu</li>
+      </ul>
+    </p>
+  </div>
+  <hr/>
+  <div class="section">
+    <h2>Reporting</h2>
+    <h3>Cdr</h3>
+  </div>
+  <hr/>
+  <div class="section">
+    <h2>Switching</h2>
+    
+    <h3>FreeSWITCHs</h3>
+    <p>
+      FreeSWITCH to handle, it must enable the following modules:
+      <ul>
+        <li>mod_xml_curl</li>
+        <li>mod_xml_rpc</li>
+        <li>mod_http_cache</li>
+        <li>mod_json_cdr</li>
+      </ul>
+      
+    </p>
+    <h3>Endpoints</h3>
+    <p>
+      Listen SIP <b>interface</b> and <b>port</b> and register for <b>domain</b>.
+    </p>
+    
+    <h3>Inbounds</h3>
+    <p>
+      Allow external sip server connect direct
+    </p>
+    <h3>Outbounds</h3>
+    <p>
+      Connect endpoint to external SIP Servers.
+    </p>
+    <p>
+      If a outbound has caller_id_name/caller_id_number then this will injected before every call going through the gateway.
+    </p>
+  </div>
+
+
+</div>

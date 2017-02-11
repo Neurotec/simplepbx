@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resource Records</h1>
+
+<div class="alert alert-info">
+  Dial '*732' to create a recording, stop with '#' or hangup.
+</div>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Created</th>
+      <th>Freeswitch</th>
+      <th>Name</th>
+      <th>
+      </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resource_records.each do |resource_record| %>
+    <tr scope="row">
+      <td><%= resource_record.created_at.to_s(:db) %></td>
+      <td><%= resource_record.freeswitch %></td>
+      <td><%= resource_record.name %></td>
+      <td>
+        <audio preload="none" controls>
+          <source src="<%= play_resource_record_path(resource_record)%>" type="audio/x-wav" />
+        </audio>
+      </td>
+      <td><%= link_to 'Show', resource_record %></td>
+      <td><%= link_to 'Edit', edit_resource_record_path(resource_record) %></td>
+      <td><%= link_to 'Destroy', resource_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    <%= paginate @resource_records %>
+  </div>
+</div>

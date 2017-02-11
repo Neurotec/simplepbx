@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Endpoint:</strong>
+  <%= @extension.endpoint %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @extension.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @extension.password %>
+</p>
+
+<p>
+  <strong>CID Name:</strong>
+  <%= @extension.cid_name %>
+</p>
+
+<p>
+  <strong>CID Numebr:</strong>
+  <%= @extension.cid_number %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @extension.location %>
+</p>
+
+<p>
+  <strong>Extension profile:</strong>
+  <%= @extension.extension_profile %>
+</p>
+
+<%= link_to 'Edit', edit_extension_path(@extension) %> |
+<%= link_to 'Back', extensions_path %>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Freeswitch:</strong>
+  <%= @endpoint.freeswitch %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @endpoint.address %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @endpoint.port %>
+</p>
+
+<div class="row">
+  <div class="col-md-6">
+    
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Status</h4>
+        <div class="card-text">
+          <table class="table table-condensed">
+            <tbody>
+              <% @endpoint.status_online.each do |key, val| %>
+              <tr>
+                <td><b><%= key %></b></td>
+                <td><%= val %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_endpoint_path(@endpoint) %> |
+<%= link_to 'Back', endpoints_path %>

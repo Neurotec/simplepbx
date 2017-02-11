@@ -1,0 +1,1 @@
+json.array! @inbounds, partial: 'inbounds/inbound', as: :inbound

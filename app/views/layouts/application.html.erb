@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simplepbx</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">SimplePBX</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to 'Dashboard', dashboard_index_path, class: 'nav-link' %>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Devices
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'Extensions', extensions_path, class: 'dropdown-item'%>
+                <%= link_to 'Groups', groups_path, class: 'dropdown-item'%>
+                <%= link_to 'Extension in Group', extension_groups_path, class: 'dropdown-item'%>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                CallCenter
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'Queues', callcenter_queues_path, class: 'dropdown-item' %>
+                <%= link_to 'Tier', callcenter_tiers_path, class: 'dropdown-item' %>
+              </div>
+            </li>
+
+                        
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Routing
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'General', endpoint_routes_path, class: 'dropdown-item' %>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reporting
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'CDR', cdr_index_path, class: 'dropdown-item' %>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Switching
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'Endpoint', endpoints_path, class: 'dropdown-item' %>
+                <%= link_to 'Inbound', inbounds_path, class: 'dropdown-item' %>
+                <%= link_to 'Outbound', outbounds_path, class: 'dropdown-item' %>
+                <%= link_to 'Freeswitchs', freeswitches_path, class: 'dropdown-item' %>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'Menu(s)', ivr_menus_path, class: 'dropdown-item' %>
+                <%= link_to 'Record(s)', resource_records_path, class: 'dropdown-item' %>
+              </div>
+            </li>
+
+            <div class="nav-item">
+              <%= link_to 'Help', help_index_path, class: 'nav-link' %>
+            </div>
+          </ul>
+          <div class="mt-2 mt-md-0">
+              <%= link_to 'Exit', destroy_user_session_path,method: :delete, class: 'btn btn-outline-danger my-2 my-sm-0'%>
+          </div>
+          <!--
+              <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+          -->
+        </div>
+      </nav>
+      <%= yield %>
+    </div>
+  </body>
+</html>

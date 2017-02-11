@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  extension_profile: one
+  priority: 1
+  application: MyString
+  data: MyString
+
+two:
+  extension_profile: two
+  priority: 1
+  application: MyString
+  data: MyString

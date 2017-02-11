@@ -1,0 +1,2 @@
+module Ivr::MenusHelper
+end

@@ -1,0 +1,2 @@
+module Callcenter::QueuesHelper
+end

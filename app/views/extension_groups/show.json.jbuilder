@@ -1,0 +1,1 @@
+json.partial! "extension_groups/extension_group", extension_group: @extension_group

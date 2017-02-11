@@ -1,0 +1,57 @@
+<%if notice.present? %>
+<p id="notice" class="alert alert-info"><%= notice %></p>
+<% end %>
+  
+<h1>Endpoints</h1>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Freeswitch</th>
+      <th>Address</th>
+      <th>Port</th>
+      <th>Online</th>
+      <th colspan="7"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @endpoints.each do |endpoint| %>
+      <tr scope="row">
+        <td><%= endpoint.freeswitch %></td>
+        <td><%= endpoint.address %></td>
+        <td><%= endpoint.port %></td>
+        <td>
+          <% if endpoint.online? %>
+          <%= fa_icon "arrow-circle-up"%>
+          <% else %>
+          <%= fa_icon "arrow-circle-down" %>
+          <% end %>
+        </td>
+        <td>
+          <%= button_to 'Start', endpoint_rpc_path(endpoint, :start), class: 'btn btn-sm btn-warning'%>
+        </td>
+        <td>
+          <%= button_to 'Stop', endpoint_rpc_path(endpoint, :stop), class: 'btn btn-sm btn-danger'%>
+        </td>
+        <td>
+          <%= button_to 'Rescan', endpoint_rpc_path(endpoint, :rescan), class: 'btn btn-sm btn-primary'%>
+        </td>
+        <td><%= link_to 'Show', endpoint %></td>
+        <td><%= link_to 'Edit', edit_endpoint_path(endpoint) %></td>
+        <td><%= link_to 'Destroy', endpoint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to 'New Endpoint', new_endpoint_path %>
+  </div>
+  <div class="col-md-10">
+    <%= paginate @endpoints %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  endpoint: one
+  destination_number: MyString
+  outbound: one
+  inbound: one
+  extension: one
+
+two:
+  endpoint: two
+  destination_number: MyString
+  outbound: two
+  inbound: two
+  extension: two

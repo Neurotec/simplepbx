@@ -1,0 +1,1 @@
+json.partial! "inbounds/inbound", inbound: @inbound

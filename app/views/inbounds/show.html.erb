@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Endpoint:</strong>
+  <%= @inbound.endpoint %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @inbound.name %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @inbound.host %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @inbound.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @inbound.password %>
+</p>
+
+<p>
+  <strong>Register:</strong>
+  <%= @inbound.register %>
+</p>
+
+<p>
+  <strong>CID Name:</strong>
+  <%= @inbound.cid_name %>
+</p>
+
+<p>
+  <strong>CID Number:</strong>
+  <%= @inbound.cid_number %>
+</p>
+
+
+<%= link_to 'Edit', edit_inbound_path(@inbound) %> |
+<%= link_to 'Back', inbounds_path %>

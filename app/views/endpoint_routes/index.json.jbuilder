@@ -1,0 +1,1 @@
+json.array! @endpoint_routes, partial: 'endpoint_routes/endpoint_route', as: :endpoint_route

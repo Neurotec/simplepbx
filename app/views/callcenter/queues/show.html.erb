@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>FreeSWITCH:</strong>
+  <%= @callcenter_queue.freeswitch %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @callcenter_queue.name %>
+</p>
+
+<p>
+  <strong>Uuid:</strong>
+  <%= @callcenter_queue.uuid %>
+</p>
+
+<p>
+  <strong>Strategy:</strong>
+  <%= @callcenter_queue.strategy %>
+</p>
+
+<p>
+  <strong>Callcenter queue profile:</strong>
+  <%= @callcenter_queue.callcenter_queue_profile %>
+</p>
+
+<%= link_to 'Edit', edit_callcenter_queue_path(@callcenter_queue) %> |
+<%= link_to 'Back', callcenter_queues_path %>

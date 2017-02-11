@@ -1,0 +1,1 @@
+json.partial! "extension_profile_actions/extension_profile_action", extension_profile_action: @extension_profile_action

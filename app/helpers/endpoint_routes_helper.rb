@@ -1,0 +1,2 @@
+module EndpointRoutesHelper
+end

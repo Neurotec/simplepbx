@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  uuid: MyString
+  strategy: MyString
+  callcenter_queue_profile: one
+
+two:
+  name: MyString
+  uuid: MyString
+  strategy: MyString
+  callcenter_queue_profile: two

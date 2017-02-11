@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Extension:</strong>
+  <%= @extension_group.extension %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @extension_group.group %>
+</p>
+
+<%= link_to 'Edit', edit_extension_group_path(@extension_group) %> |
+<%= link_to 'Back', extension_groups_path %>

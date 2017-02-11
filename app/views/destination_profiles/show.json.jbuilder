@@ -1,0 +1,1 @@
+json.partial! "destination_profiles/destination_profile", destination_profile: @destination_profile

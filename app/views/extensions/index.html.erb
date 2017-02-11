@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Extensions</h1>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Endpoint</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>CIDName</th>
+      <th>Location</th>
+      <th>Extension profile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @extensions.each do |extension| %>
+      <tr scope="row">
+        <td><%= extension.endpoint %></td>
+        <td><%= extension.username %></td>
+        <td><%= extension.password %></td>
+        <td><%= extension.cid_name %></td>
+        <td><%= extension.location %></td>
+        <td><%= extension.extension_profile %></td>
+        <td><%= link_to 'Show', extension %></td>
+        <td><%= link_to 'Edit', edit_extension_path(extension) %></td>
+        <td><%= link_to 'Destroy', extension, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to 'New Extension', new_extension_path %>
+  </div>
+  <div class="col-md-10">
+    <%= paginate @extensions %>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Endpoint:</strong>
+  <%= @outbound.endpoint %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @outbound.name %>
+</p>
+
+<p>
+  <strong>Realm:</strong>
+  <%= @outbound.realm %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @outbound.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @outbound.password %>
+</p>
+
+<p>
+  <strong>Register:</strong>
+  <%= @outbound.register %>
+</p>
+
+<p>
+  <strong>Cidfrom:</strong>
+  <%= @outbound.cidfrom %>
+</p>
+
+<p>
+  <strong>Codecs:</strong>
+  <%= @outbound.codecs %>
+</p>
+
+<p>
+  <strong>Proxy:</strong>
+  <%= @outbound.proxy %>
+</p>
+
+<p>
+  <strong>CID Name:</strong>
+  <%= @outbound.cid_name %>
+</p>
+
+
+<p>
+  <strong>CID Number:</strong>
+  <%= @outbound.cid_number %>
+</p>
+
+<table class="table table-condensed">
+  <tbody>
+    <% @outbound.rpc_status.each do |key, val| %>
+    <tr>
+      <td><b><%= key %></b></td>
+      <td><%= val %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_outbound_path(@outbound) %> |
+<%= link_to 'Back', outbounds_path %>

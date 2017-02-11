@@ -1,0 +1,1 @@
+json.array! @freeswitches, partial: 'freeswitches/freeswitch', as: :freeswitch

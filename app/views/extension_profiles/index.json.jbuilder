@@ -1,0 +1,1 @@
+json.array! @extension_profiles, partial: 'extension_profiles/extension_profile', as: :extension_profile

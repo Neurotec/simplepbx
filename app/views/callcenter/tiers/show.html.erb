@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Extension:</strong>
+  <%= @callcenter_tier.extension %>
+</p>
+
+<p>
+  <strong>Callcenter queue:</strong>
+  <%= @callcenter_tier.callcenter_queue %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @callcenter_tier.level %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @callcenter_tier.position %>
+</p>
+
+<%= link_to 'Edit', edit_callcenter_tier_path(@callcenter_tier) %> |
+<%= link_to 'Back', callcenter_tiers_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destination_profile: one
+  application: MyString
+  data: MyString
+
+two:
+  destination_profile: two
+  application: MyString
+  data: MyString

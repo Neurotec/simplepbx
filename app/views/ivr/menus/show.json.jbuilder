@@ -1,0 +1,1 @@
+json.partial! "ivr_menus/ivr_menu", ivr_menu: @ivr_menu

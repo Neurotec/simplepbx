@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  freeswitch: one
+  caller_id_name: MyString
+  caller_id_number: MyString
+  destination_number: MyString
+  record_path: MyString
+  start_time: 1
+  duration: 1
+  hangup_cause_q850: 1
+
+two:
+  freeswitch: two
+  caller_id_name: MyString
+  caller_id_number: MyString
+  destination_number: MyString
+  record_path: MyString
+  start_time: 1
+  duration: 1
+  hangup_cause_q850: 1
