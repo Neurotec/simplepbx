@@ -1,4 +1,5 @@
 require 'open-uri'
+
 class Freeswitch < ApplicationRecord
   has_many :endpoints
   has_many :cdrs
@@ -12,10 +13,10 @@ class Freeswitch < ApplicationRecord
   scope :from_user, ->(user){where(user_id: user.id)}
 
   after_create do
-    keys_path = Rails.root.join('keys', id.to_s).shellescape
+    keys_path = Rails.root.join('keys', id.to_s).to_s.shellescape
     private_key_path = Rails.root.join('keys', id.to_s)
-    public_key_path = Rails.root.join('keys', "#{id.to_s}.pub").shellescape
-    pem_path = Rails.root.join('keys', "#{id.to_s}.pem").shellescape
+    public_key_path = Rails.root.join('keys', "#{id.to_s}.pub").to_s.shellescape
+    pem_path = Rails.root.join('keys', "#{id.to_s}.pem").to_s.shellescape
     
     %x<ssh-keygen -q -N "" -f #{keys_path}>
     system("cat #{private_key_path} #{public_key_path} > #{pem_path}")
