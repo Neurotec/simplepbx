@@ -41,7 +41,12 @@ class ExtensionsController < ApplicationController
   # PATCH/PUT /extensions/1.json
   def update
     respond_to do |format|
-      if @extension.update(extension_params)
+      if @extension.update(extension_params)  
+        begin
+          @extension.expire_freeswitch_cache_user
+        rescue Exception => e
+          flash[:error] = "Please check your freeswitch connection"
+        end
         format.html { redirect_to @extension, notice: 'Extension was successfully updated.' }
         format.json { render :show, status: :ok, location: @extension }
       else
@@ -55,6 +60,11 @@ class ExtensionsController < ApplicationController
   # DELETE /extensions/1.json
   def destroy
     @extension.destroy
+    begin
+      @extension.expire_freeswitch_cache_user
+    rescue Exception => e
+      flash[:error] = "Please check your freeswitch connection"
+    end
     respond_to do |format|
       format.html { redirect_to extensions_url, notice: 'Extension was successfully destroyed.' }
       format.json { head :no_content }
