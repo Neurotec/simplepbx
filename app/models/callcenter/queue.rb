@@ -24,10 +24,24 @@ class Callcenter::Queue < ApplicationRecord
   
   scope :from_user, ->(user){where(freeswitch_id: user.freeswitches.pluck(:id))}
   def to_s; "#{freeswitch.name}/#{name}" end
+  
   def routable_name
     "Queue(#{name}##{freeswitch})"
   end
-  
+
+  def routable_profile_xml(builder, endpoint)
+    builder.action application: 'set', data: 'hangup_after_bridge=true'
+    builder.action application: 'pre_answer'
+  end
+
+  def routable_outbound_xml(builder, endpoint)
+    builder.action application: 'callcenter', data: "#{uuid}"
+  end
+
+  def routable_outbound_inline
+    "callcenter #{uuid}"
+  end
+
   before_create do
     self.uuid = SecureRandom.uuid
   end

@@ -12,8 +12,20 @@ class Group < ApplicationRecord
   def to_s
     name
   end
+  
   def routable_name
     "Group(#{name})"
+  end
+
+  def routable_profile_xml(builder, endpoint)
+  end
+  
+  def routable_outbound_xml(builder, endpoint)
+    builder.action application: 'bridge', data: "group/#{uuid}@#{endpoint.domain}"
+  end
+
+  def routable_outbound_inline
+    "bridge group_call(#{uuid}@#{endpoint.domain})"
   end
   
   before_create do

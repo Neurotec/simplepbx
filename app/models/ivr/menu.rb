@@ -8,7 +8,7 @@ class Ivr::Menu < ApplicationRecord
   belongs_to :invalid_sound, class_name: 'Resource::Object', foreign_key: :invalid_sound_id
   belongs_to :exit_sound, class_name: 'Resource::Object', foreign_key: :exit_sound_id
 
-  has_many :ivr_actions, class_name: 'Ivr::Action', dependent: :destroy
+  has_many :ivr_actions, class_name: 'Ivr::Action', dependent: :destroy, foreign_key: :ivr_menu_id
 
   validates :name, name: true, presence: true
   accepts_nested_attributes_for :ivr_actions
@@ -22,7 +22,14 @@ class Ivr::Menu < ApplicationRecord
   def routable_name
     "Ivr::Menu(#{name}##{freeswitch})"
   end
+
+  def routable_profile_xml(builder, endpoint)
+  end
   
+  def routable_outbound_xml(builder, endpoint)
+    builder.action application: 'ivr', data: "#{uuid}"
+  end
+
   def actions
     ivr_actions.reject{|i| !i.outbound_route.present?}
   end

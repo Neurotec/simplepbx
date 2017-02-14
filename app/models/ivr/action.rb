@@ -1,5 +1,5 @@
 class Ivr::Action < ApplicationRecord
-  belongs_to :menu, class_name: 'Ivr::Menu', optional: true
+  belongs_to :menu, class_name: 'Ivr::Menu', optional: true, foreign_key: :ivr_menu_id
   belongs_to :outbound_route, optional: true
 
   validates :digits, allow_blank: true, numericality: {only_integer: true}

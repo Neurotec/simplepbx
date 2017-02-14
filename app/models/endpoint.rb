@@ -11,7 +11,7 @@ class Endpoint < ApplicationRecord
   validates :domain, presence: true, uniqueness: true, host: true
   validates :port, presence: true, uniqueness: true, numericality: {only_integer: true} #TODO por dominio
   validates :address, presence: true, host: true
-  validates :external_address, host: true
+  validates :external_address, host: true, allow_blank: true
   
   scope :from_user, ->(user) {where(freeswitch_id: user.freeswitches.pluck(:id))}
   def to_s

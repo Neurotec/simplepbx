@@ -21,6 +21,15 @@ class Outbound < ApplicationRecord
   def routable_name
     "Outbound(#{endpoint.to_s}/#{name})"
   end
+
+  def routable_profile_xml(builder, endpoint)
+    builder.action application: 'set', data: "effective_caller_id_number=#{cid_number}" if cid_number.present?
+    builder.action application: 'set', data: "effective_caller_id_name=#{cid_name}" if cid_name.present?
+  end
+
+  def routable_outbound_xml(builder, endpoint)
+    builder.action application: 'bridge', data: "sofia/gateway/#{uuid}/$1"
+  end
   
   def rpc_register!
     begin
