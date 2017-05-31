@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170210210829) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "callcenter_queue_profiles", force: :cascade do |t|
     t.string   "type"
     t.string   "name",                          default: "General"
@@ -37,8 +40,8 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.integer  "callcenter_queue_profile_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.index ["callcenter_queue_profile_id"], name: "index_callcenter_queues_on_callcenter_queue_profile_id"
-    t.index ["freeswitch_id"], name: "index_callcenter_queues_on_freeswitch_id"
+    t.index ["callcenter_queue_profile_id"], name: "index_callcenter_queues_on_callcenter_queue_profile_id", using: :btree
+    t.index ["freeswitch_id"], name: "index_callcenter_queues_on_freeswitch_id", using: :btree
   end
 
   create_table "callcenter_tiers", force: :cascade do |t|
@@ -48,8 +51,8 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.integer  "position",            default: 1
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.index ["callcenter_queue_id"], name: "index_callcenter_tiers_on_callcenter_queue_id"
-    t.index ["extension_id"], name: "index_callcenter_tiers_on_extension_id"
+    t.index ["callcenter_queue_id"], name: "index_callcenter_tiers_on_callcenter_queue_id", using: :btree
+    t.index ["extension_id"], name: "index_callcenter_tiers_on_extension_id", using: :btree
   end
 
   create_table "cdrs", force: :cascade do |t|
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "hangup_cause"
-    t.index ["freeswitch_id"], name: "index_cdrs_on_freeswitch_id"
+    t.index ["freeswitch_id"], name: "index_cdrs_on_freeswitch_id", using: :btree
   end
 
   create_table "destination_profile_actions", force: :cascade do |t|
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "data"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.index ["destination_profile_id"], name: "index_destination_profile_actions_on_destination_profile_id"
+    t.index ["destination_profile_id"], name: "index_destination_profile_actions_on_destination_profile_id", using: :btree
   end
 
   create_table "destination_profiles", force: :cascade do |t|
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "condition_expression"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.index ["endpoint_id"], name: "index_destination_profiles_on_endpoint_id"
+    t.index ["endpoint_id"], name: "index_destination_profiles_on_endpoint_id", using: :btree
   end
 
   create_table "endpoint_outbound_routes", force: :cascade do |t|
@@ -94,8 +97,8 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.integer  "endpoint_route_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["endpoint_route_id"], name: "index_endpoint_outbound_routes_on_endpoint_route_id"
-    t.index ["outbound_route_id"], name: "index_endpoint_outbound_routes_on_outbound_route_id"
+    t.index ["endpoint_route_id"], name: "index_endpoint_outbound_routes_on_endpoint_route_id", using: :btree
+    t.index ["outbound_route_id"], name: "index_endpoint_outbound_routes_on_outbound_route_id", using: :btree
   end
 
   create_table "endpoint_routes", force: :cascade do |t|
@@ -117,7 +120,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "domain"
-    t.index ["freeswitch_id"], name: "index_endpoints_on_freeswitch_id"
+    t.index ["freeswitch_id"], name: "index_endpoints_on_freeswitch_id", using: :btree
   end
 
   create_table "extension_groups", force: :cascade do |t|
@@ -125,8 +128,8 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.integer  "group_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["extension_id"], name: "index_extension_groups_on_extension_id"
-    t.index ["group_id"], name: "index_extension_groups_on_group_id"
+    t.index ["extension_id"], name: "index_extension_groups_on_extension_id", using: :btree
+    t.index ["group_id"], name: "index_extension_groups_on_group_id", using: :btree
   end
 
   create_table "extension_profile_actions", force: :cascade do |t|
@@ -136,7 +139,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "data"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.index ["extension_profile_id"], name: "index_extension_profile_actions_on_extension_profile_id"
+    t.index ["extension_profile_id"], name: "index_extension_profile_actions_on_extension_profile_id", using: :btree
   end
 
   create_table "extension_profiles", force: :cascade do |t|
@@ -144,7 +147,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_extension_profiles_on_user_id"
+    t.index ["user_id"], name: "index_extension_profiles_on_user_id", using: :btree
   end
 
   create_table "extensions", force: :cascade do |t|
@@ -152,15 +155,15 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "username"
     t.string   "password"
     t.integer  "vmpassword"
-    t.string   "cid_name",             default: "$${outbound_caller_id_name}"
-    t.string   "cid_number",           default: "$${outbound_caller_id_number}"
+    t.string   "cid_name",             default: ""
+    t.string   "cid_number",           default: ""
     t.string   "location"
     t.integer  "extension_profile_id"
-    t.datetime "created_at",                                                     null: false
-    t.datetime "updated_at",                                                     null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.boolean  "do_record",            default: false
-    t.index ["endpoint_id"], name: "index_extensions_on_endpoint_id"
-    t.index ["extension_profile_id"], name: "index_extensions_on_extension_profile_id"
+    t.index ["endpoint_id"], name: "index_extensions_on_endpoint_id", using: :btree
+    t.index ["extension_profile_id"], name: "index_extensions_on_extension_profile_id", using: :btree
   end
 
   create_table "freeswitches", force: :cascade do |t|
@@ -176,7 +179,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "xml_rpc_pass",          default: "works"
     t.integer  "xml_rpc_port",          default: 8080
     t.string   "record_public_user",    default: "simplepbx_recording"
-    t.index ["user_id"], name: "index_freeswitches_on_user_id"
+    t.index ["user_id"], name: "index_freeswitches_on_user_id", using: :btree
   end
 
   create_table "groups", force: :cascade do |t|
@@ -185,7 +188,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "uuid"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["endpoint_id"], name: "index_groups_on_endpoint_id"
+    t.index ["endpoint_id"], name: "index_groups_on_endpoint_id", using: :btree
   end
 
   create_table "inbounds", force: :cascade do |t|
@@ -200,17 +203,17 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "cid_number",  default: "$${outbound_caller_id_number}"
     t.datetime "created_at",                                            null: false
     t.datetime "updated_at",                                            null: false
-    t.index ["endpoint_id"], name: "index_inbounds_on_endpoint_id"
+    t.index ["endpoint_id"], name: "index_inbounds_on_endpoint_id", using: :btree
   end
 
   create_table "ivr_actions", force: :cascade do |t|
-    t.integer  "menu_id"
+    t.integer  "ivr_menu_id"
     t.integer  "outbound_route_id"
     t.integer  "digits"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["menu_id"], name: "index_ivr_actions_on_menu_id"
-    t.index ["outbound_route_id"], name: "index_ivr_actions_on_outbound_route_id"
+    t.index ["ivr_menu_id"], name: "index_ivr_actions_on_ivr_menu_id", using: :btree
+    t.index ["outbound_route_id"], name: "index_ivr_actions_on_outbound_route_id", using: :btree
   end
 
   create_table "ivr_menus", force: :cascade do |t|
@@ -228,7 +231,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.integer  "freeswitch_id"
     t.string   "uuid"
     t.string   "name"
-    t.index ["freeswitch_id"], name: "index_ivr_menus_on_freeswitch_id"
+    t.index ["freeswitch_id"], name: "index_ivr_menus_on_freeswitch_id", using: :btree
   end
 
   create_table "outbound_routes", force: :cascade do |t|
@@ -237,7 +240,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "freeswitch_id"
-    t.index ["foreign_id"], name: "index_outbound_routes_on_foreign_id"
+    t.index ["foreign_id"], name: "index_outbound_routes_on_foreign_id", using: :btree
   end
 
   create_table "outbounds", force: :cascade do |t|
@@ -255,7 +258,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "cid_number"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["endpoint_id"], name: "index_outbounds_on_endpoint_id"
+    t.index ["endpoint_id"], name: "index_outbounds_on_endpoint_id", using: :btree
   end
 
   create_table "resource_objects", force: :cascade do |t|
@@ -272,7 +275,7 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "path"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["freeswitch_id"], name: "index_resource_records_on_freeswitch_id"
+    t.index ["freeswitch_id"], name: "index_resource_records_on_freeswitch_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -288,8 +291,32 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "callcenter_queues", "callcenter_queue_profiles"
+  add_foreign_key "callcenter_queues", "freeswitches"
+  add_foreign_key "callcenter_tiers", "callcenter_queues"
+  add_foreign_key "callcenter_tiers", "extensions"
+  add_foreign_key "cdrs", "freeswitches"
+  add_foreign_key "destination_profile_actions", "destination_profiles"
+  add_foreign_key "destination_profiles", "endpoints"
+  add_foreign_key "endpoint_outbound_routes", "endpoint_routes"
+  add_foreign_key "endpoint_outbound_routes", "outbound_routes"
+  add_foreign_key "endpoints", "freeswitches"
+  add_foreign_key "extension_groups", "extensions"
+  add_foreign_key "extension_groups", "groups"
+  add_foreign_key "extension_profile_actions", "extension_profiles"
+  add_foreign_key "extension_profiles", "users"
+  add_foreign_key "extensions", "endpoints"
+  add_foreign_key "extensions", "extension_profiles"
+  add_foreign_key "freeswitches", "users"
+  add_foreign_key "groups", "endpoints"
+  add_foreign_key "inbounds", "endpoints"
+  add_foreign_key "ivr_actions", "ivr_menus"
+  add_foreign_key "ivr_actions", "outbound_routes"
+  add_foreign_key "ivr_menus", "freeswitches"
+  add_foreign_key "outbounds", "endpoints"
+  add_foreign_key "resource_records", "freeswitches"
 end
