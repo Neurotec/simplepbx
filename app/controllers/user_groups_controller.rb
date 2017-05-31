@@ -6,7 +6,6 @@ class UserGroupsController < ApplicationController
   def index
     authorize! :read, :user_groups
     @user_groups = UserGroup.all
-
   end
 
   # GET /user_groups/1
