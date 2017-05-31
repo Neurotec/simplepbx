@@ -4,26 +4,31 @@ class OutboundsController < ApplicationController
   # GET /outbounds
   # GET /outbounds.json
   def index
+    authorize! :read, :outbounds
     @outbounds = Outbound.all
   end
 
   # GET /outbounds/1
   # GET /outbounds/1.json
   def show
+    authorize! :read, :outbounds
   end
 
   # GET /outbounds/new
   def new
+    authorize! :create, :outbounds
     @outbound = Outbound.new
   end
 
   # GET /outbounds/1/edit
   def edit
+    authorize! :update, :outbounds
   end
 
   # POST /outbounds
   # POST /outbounds.json
   def create
+    authorize! :create, :outbounds
     @outbound = Outbound.new(outbound_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class OutboundsController < ApplicationController
   # PATCH/PUT /outbounds/1
   # PATCH/PUT /outbounds/1.json
   def update
+    authorize! :update, :outbounds
     respond_to do |format|
       if @outbound.update(outbound_params)
         format.html { redirect_to @outbound, notice: 'Outbound was successfully updated.' }
@@ -54,6 +60,7 @@ class OutboundsController < ApplicationController
   # DELETE /outbounds/1
   # DELETE /outbounds/1.json
   def destroy
+    authorize! :delete, :outbounds
     @outbound.destroy
     respond_to do |format|
       format.html { redirect_to outbounds_url, notice: 'Outbound was successfully destroyed.' }

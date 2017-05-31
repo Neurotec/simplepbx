@@ -4,26 +4,31 @@ class InboundsController < ApplicationController
   # GET /inbounds
   # GET /inbounds.json
   def index
+    authorize! :read, :inbounds
     @inbounds = Inbound.page(params[:page]).all
   end
 
   # GET /inbounds/1
   # GET /inbounds/1.json
   def show
+    authorize! :read, :inbounds
   end
 
   # GET /inbounds/new
   def new
+    authorize! :create, :inbounds
     @inbound = Inbound.new
   end
 
   # GET /inbounds/1/edit
   def edit
+    authorize! :update, :inbounds
   end
 
   # POST /inbounds
   # POST /inbounds.json
   def create
+    authorize! :create, :inbounds
     @inbound = Inbound.new(inbound_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class InboundsController < ApplicationController
   # PATCH/PUT /inbounds/1
   # PATCH/PUT /inbounds/1.json
   def update
+    authorize! :update, :inbounds
     respond_to do |format|
       if @inbound.update(inbound_params)
         format.html { redirect_to @inbound, notice: 'Inbound was successfully updated.' }
@@ -54,6 +60,7 @@ class InboundsController < ApplicationController
   # DELETE /inbounds/1
   # DELETE /inbounds/1.json
   def destroy
+    authorize! :destroy, :inbounds
     @inbound.destroy
     respond_to do |format|
       format.html { redirect_to inbounds_url, notice: 'Inbound was successfully destroyed.' }

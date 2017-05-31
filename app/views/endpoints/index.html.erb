@@ -29,17 +29,17 @@
           <% end %>
         </td>
         <td>
-          <%= button_to 'Start', endpoint_rpc_path(endpoint, :start), class: 'btn btn-sm btn-warning'%>
+          <%= button_to('Start', endpoint_rpc_path(endpoint, :start), class: 'btn btn-sm btn-warning') if can?(:update, :endpoints)%>
         </td>
         <td>
-          <%= button_to 'Stop', endpoint_rpc_path(endpoint, :stop), class: 'btn btn-sm btn-danger'%>
+          <%= button_to('Stop', endpoint_rpc_path(endpoint, :stop), class: 'btn btn-sm btn-danger') if can?(:update, :endpoints)%>
         </td>
         <td>
-          <%= button_to 'Rescan', endpoint_rpc_path(endpoint, :rescan), class: 'btn btn-sm btn-primary'%>
+          <%= button_to('Rescan', endpoint_rpc_path(endpoint, :rescan), class: 'btn btn-sm btn-primary') if can?(:update, :endpoints)%>
         </td>
         <td><%= link_to 'Show', endpoint %></td>
-        <td><%= link_to 'Edit', edit_endpoint_path(endpoint) %></td>
-        <td><%= link_to 'Destroy', endpoint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to('Edit', edit_endpoint_path(endpoint)) if can?(:update, :endpoints) %></td>
+        <td><%= link_to('Destroy', endpoint, method: :delete, data: { confirm: 'Are you sure?' }) if can?(:delete, :endpoints) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -49,7 +49,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <%= link_to 'New Endpoint', new_endpoint_path %>
+    <%= link_to('New Endpoint', new_endpoint_path) if can?(:create, :endpoints) %>
   </div>
   <div class="col-md-10">
     <%= paginate @endpoints %>

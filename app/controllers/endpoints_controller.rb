@@ -4,26 +4,31 @@ class EndpointsController < ApplicationController
   # GET /endpoints
   # GET /endpoints.json
   def index
+    authorize! :read, :endpoints
     @endpoints = Endpoint.page(params[:page]).all
   end
 
   # GET /endpoints/1
   # GET /endpoints/1.json
   def show
+    authorize! :read, :endpoints
   end
 
   # GET /endpoints/new
   def new
+    authorize! :create, :endpoints
     @endpoint = Endpoint.new
   end
 
   # GET /endpoints/1/edit
   def edit
+    authorize! :update, :endpoints
   end
 
   # POST /endpoints
   # POST /endpoints.json
   def create
+    authorize! :create, :endpoints
     @endpoint = Endpoint.new(endpoint_params)
     @endpoint.freeswitch_id = nil unless current_user.freeswitches.pluck(:id).member?(@endpoint.freeswitch_id)
     respond_to do |format|
@@ -40,6 +45,7 @@ class EndpointsController < ApplicationController
   # PATCH/PUT /endpoints/1
   # PATCH/PUT /endpoints/1.json
   def update
+    authorize! :update, :endpoints
     respond_to do |format|
       if @endpoint.update(endpoint_params)
         format.html { redirect_to @endpoint, notice: 'Endpoint was successfully updated.' }
@@ -54,6 +60,7 @@ class EndpointsController < ApplicationController
   # DELETE /endpoints/1
   # DELETE /endpoints/1.json
   def destroy
+    authorize! :delete, :endpoints
     @endpoint.destroy
     respond_to do |format|
       format.html { redirect_to endpoints_url, notice: 'Endpoint was successfully destroyed.' }

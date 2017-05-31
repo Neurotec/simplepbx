@@ -27,9 +27,15 @@
                 Devices
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<% if can? :read, :extensions %>
                 <%= link_to 'Extensions', extensions_path, class: 'dropdown-item'%>
+		<% end %>
+		<% if can? :read, :groups %>
                 <%= link_to 'Groups', groups_path, class: 'dropdown-item'%>
+		<% end %>
+		<% if can? :read, :extension_groups %>
                 <%= link_to 'Extension in Group', extension_groups_path, class: 'dropdown-item'%>
+		<% end %>
               </div>
             </li>
 
@@ -38,8 +44,12 @@
                 CallCenter
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to 'Queues', callcenter_queues_path, class: 'dropdown-item' %>
-                <%= link_to 'Tier', callcenter_tiers_path, class: 'dropdown-item' %>
+		<% if can? :read, :callcenter_queues %>
+						      <%= link_to 'Queues', callcenter_queues_path, class: 'dropdown-item' %>
+						      <% end %>
+						      <% if can? :read, :callcenter_tiers %>
+						      <%= link_to 'Tier', callcenter_tiers_path, class: 'dropdown-item' %>
+						      <% end %>
               </div>
             </li>
 
@@ -49,7 +59,9 @@
                 Routing
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<% if can? :read, :endpoint_routes %>
                 <%= link_to 'General', endpoint_routes_path, class: 'dropdown-item' %>
+		<% end %>
               </div>
             </li>
 
@@ -58,42 +70,66 @@
                 Reporting
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<% if can? :read, :cdr %>								   
                 <%= link_to 'CDR', cdr_index_path, class: 'dropdown-item' %>
-              </div>
+		<% end %>
+					</div>
             </li>
 
+	    <% if can?(:read, :endpoints) or can?(:read, :inbounds) or can?(:read, :outbounds) or can?(:read, :freeswitches)   %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Switching
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<% if can? :read, :endpoints %>
                 <%= link_to 'Endpoint', endpoints_path, class: 'dropdown-item' %>
+		<% end %>
+		<% if can? :read, :inbounds %>
                 <%= link_to 'Inbound', inbounds_path, class: 'dropdown-item' %>
+		<% end %>
+		<% if can? :read, :outbounds %>
                 <%= link_to 'Outbound', outbounds_path, class: 'dropdown-item' %>
+		<% end %>
+		<% if can? :read, :freeswitches %>
                 <%= link_to 'Freeswitchs', freeswitches_path, class: 'dropdown-item' %>
+		<% end %>
               </div>
             </li>
-
+	    <% end %>
+	    
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Menu
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<% if can? :read, :ivr_menus %>
                 <%= link_to 'Menu(s)', ivr_menus_path, class: 'dropdown-item' %>
+		<% end %>
+		<% if can? :read ,:resources_records %>
                 <%= link_to 'Record(s)', resource_records_path, class: 'dropdown-item' %>
+		<% end %>
               </div>
             </li>
 
+	    <% if can?(:read, :users) or can?(:read, :user_groups) or can?(:read, :group_permissions) %>
 	    <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Administration
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<% if can? :read, :users %>
 		<%= link_to 'User(s)', user_registration_path, class: 'dropdown-item' %>
+		<% end %>
+		<% if can? :read, :user_groups %>
                 <%= link_to 'Groups(s)', user_groups_path, class: 'dropdown-item' %>
+		<% end %>
+		<% if can? :read, :group_permissions %>
 		<%= link_to 'Permission(s)', group_permissions_path, class: 'dropdown-item' %>
+		<% end %>
               </div>
             </li>
+	    <% end %>
 
             <div class="nav-item">
               <%= link_to 'Help', help_index_path, class: 'nav-link' %>

@@ -4,26 +4,31 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
+    authorize! :read, :groups
     @groups = Group.page(params[:page]).all
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
+    authorize! :read, :groups
   end
 
   # GET /groups/new
   def new
+    authorize! :create, :groups
     @group = Group.new
   end
 
   # GET /groups/1/edit
   def edit
+    authorize! :update, :groups
   end
 
   # POST /groups
   # POST /groups.json
   def create
+    authorize! :create, :groups
     @group = Group.new(group_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
+    authorize! :update, :groups
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
@@ -54,6 +60,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
+    authorize! :delete, :groups
     @group.destroy
     respond_to do |format|
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }

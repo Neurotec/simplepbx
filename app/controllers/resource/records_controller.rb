@@ -8,26 +8,31 @@ class Resource::RecordsController < ApplicationController
   # GET /resource/records
   # GET /resource/records.json
   def index
+    authorize! :read, :resources_records
     @resource_records = Resource::Record.order(created_at: :desc).page(params[:page]).all
   end
 
   # GET /resource/records/1
   # GET /resource/records/1.json
   def show
+    authorize! :read, :resources_records
   end
 
   # GET /resource/records/new
   def new
+    authorize! :create, :resources_records
     @resource_record = Resource::Record.new
   end
 
   # GET /resource/records/1/edit
   def edit
+    authorize! :update, :resources_records
   end
 
   # POST /resource/records
   # POST /resource/records.json
   def create
+    authorize! :create, :resources_records
     @resource_record = Resource::Record.new(resource_record_params)
 
     respond_to do |format|
@@ -44,6 +49,7 @@ class Resource::RecordsController < ApplicationController
   # PATCH/PUT /resource/records/1
   # PATCH/PUT /resource/records/1.json
   def update
+    authorize! :update, :resources_records
     respond_to do |format|
       if @resource_record.update(resource_record_params)
         format.html { redirect_to @resource_record, notice: 'Record was successfully updated.' }
@@ -58,6 +64,7 @@ class Resource::RecordsController < ApplicationController
   # DELETE /resource/records/1
   # DELETE /resource/records/1.json
   def destroy
+    authorize! :delete, :resources_records
     @resource_record.destroy
     respond_to do |format|
       format.html { redirect_to resource_records_url, notice: 'Record was successfully destroyed.' }

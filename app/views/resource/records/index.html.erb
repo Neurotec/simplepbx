@@ -30,8 +30,8 @@
         </audio>
       </td>
       <td><%= link_to 'Show', resource_record %></td>
-      <td><%= link_to 'Edit', edit_resource_record_path(resource_record) %></td>
-      <td><%= link_to 'Destroy', resource_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to('Edit', edit_resource_record_path(resource_record)) if can?(:update, :resources_records) %></td>
+      <td><%= link_to('Destroy', resource_record, method: :delete, data: { confirm: 'Are you sure?' }) if can?(:delete, :resource_records) %></td>
     </tr>
     <% end %>
   </tbody>

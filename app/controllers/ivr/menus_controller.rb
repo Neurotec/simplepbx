@@ -4,16 +4,19 @@ class Ivr::MenusController < ApplicationController
   # GET /ivr/menus
   # GET /ivr/menus.json
   def index
+    authorize! :read, :ivr_menus
     @ivr_menus = Ivr::Menu.page(params[:page]).all
   end
 
   # GET /ivr/menus/1
   # GET /ivr/menus/1.json
   def show
+    authorize! :read, :ivr_menus
   end
 
   # GET /ivr/menus/new
   def new
+    authorize! :create, :ivr_menus
     @ivr_menu = Ivr::Menu.new
     5.times {
       @ivr_menu.ivr_actions.build
@@ -22,11 +25,13 @@ class Ivr::MenusController < ApplicationController
 
   # GET /ivr/menus/1/edit
   def edit
+    authorize! :update, :ivr_menus
   end
 
   # POST /ivr/menus
   # POST /ivr/menus.json
   def create
+    authorize! :create, :ivr_menus
     @ivr_menu = Ivr::Menu.new(ivr_menu_params)
 
     respond_to do |format|
@@ -43,6 +48,7 @@ class Ivr::MenusController < ApplicationController
   # PATCH/PUT /ivr/menus/1
   # PATCH/PUT /ivr/menus/1.json
   def update
+    authorize! :update, :ivr_menus
     respond_to do |format|
       if @ivr_menu.update(ivr_menu_params)
         format.html { redirect_to ivr_menus_path, notice: 'Menu was successfully updated.' }
@@ -57,6 +63,7 @@ class Ivr::MenusController < ApplicationController
   # DELETE /ivr/menus/1
   # DELETE /ivr/menus/1.json
   def destroy
+    authorize! :delete, :ivr_menus
     @ivr_menu.destroy
     respond_to do |format|
       format.html { redirect_to ivr_menus_url, notice: 'Menu was successfully destroyed.' }

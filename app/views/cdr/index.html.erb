@@ -44,11 +44,13 @@
       <td><%= cdr.duration %></td>
       <td><%= cdr.hangup_cause %></td>
       <td>
+	<% if can?(:read, :cdr_recording) %>
         <% if cdr.record_path.present? and !cdr.record_path.empty? %>
         <audio preload="none" controls>
           <source src="<%= cdr_play_path(cdr)%>" type="audio/x-wav"/>
           </audio>
         <% end %>
+	<% end %>
       </td>
     </tr>
     <% end %>

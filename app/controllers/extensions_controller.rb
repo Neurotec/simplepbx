@@ -4,26 +4,31 @@ class ExtensionsController < ApplicationController
   # GET /extensions
   # GET /extensions.json
   def index
+    authorize! :read, :extensions
     @extensions = Extension.page(params[:page]).all
   end
 
   # GET /extensions/1
   # GET /extensions/1.json
   def show
+    authorize! :read, :extensions
   end
 
   # GET /extensions/new
   def new
+    authorize! :create, :extensions
     @extension = Extension.new
   end
 
   # GET /extensions/1/edit
   def edit
+    authorize! :update, :extensions
   end
 
   # POST /extensions
   # POST /extensions.json
   def create
+    authorize! :create, :extensions
     @extension = Extension.new(extension_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class ExtensionsController < ApplicationController
   # PATCH/PUT /extensions/1
   # PATCH/PUT /extensions/1.json
   def update
+    authorize! :update, :extensions
     respond_to do |format|
       if @extension.update(extension_params)  
         begin
@@ -59,6 +65,7 @@ class ExtensionsController < ApplicationController
   # DELETE /extensions/1
   # DELETE /extensions/1.json
   def destroy
+    authorize! :delete, :extensions
     @extension.destroy
     begin
       @extension.expire_freeswitch_cache_user

@@ -4,26 +4,31 @@ class ExtensionGroupsController < ApplicationController
   # GET /extension_groups
   # GET /extension_groups.json
   def index
+    authorize! :read, :extension_groups
     @extension_groups = ExtensionGroup.page(params[:page]).all
   end
 
   # GET /extension_groups/1
   # GET /extension_groups/1.json
   def show
+    authorize! :read, :extension_groups
   end
 
   # GET /extension_groups/new
   def new
+    authorize! :create, :extension_groups
     @extension_group = ExtensionGroup.new
   end
 
   # GET /extension_groups/1/edit
   def edit
+    authorize! :update, :extension_groups
   end
 
   # POST /extension_groups
   # POST /extension_groups.json
   def create
+    authorize! :create, :extension_groups
     @extension_group = ExtensionGroup.new(extension_group_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class ExtensionGroupsController < ApplicationController
   # PATCH/PUT /extension_groups/1
   # PATCH/PUT /extension_groups/1.json
   def update
+    authorize! :update, :extension_groups
     respond_to do |format|
       if @extension_group.update(extension_group_params)
         format.html { redirect_to @extension_group, notice: 'Extension group was successfully updated.' }
@@ -54,6 +60,7 @@ class ExtensionGroupsController < ApplicationController
   # DELETE /extension_groups/1
   # DELETE /extension_groups/1.json
   def destroy
+    authorize! :delete, :extension_groups
     @extension_group.destroy
     respond_to do |format|
       format.html { redirect_to extension_groups_url, notice: 'Extension group was successfully destroyed.' }

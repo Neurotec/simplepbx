@@ -17,8 +17,8 @@
         <td><%= extension_group.extension %></td>
         <td><%= extension_group.group %></td>
         <td><%= link_to 'Show', extension_group %></td>
-        <td><%= link_to 'Edit', edit_extension_group_path(extension_group) %></td>
-        <td><%= link_to 'Destroy', extension_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to('Edit', edit_extension_group_path(extension_group)) if can?(:update, :extension_groups) %></td>
+        <td><%= link_to('Destroy', extension_group, method: :delete, data: { confirm: 'Are you sure?' }) if can?(:delete, :extension_groups) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,7 +28,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <%= link_to 'New Extension Group', new_extension_group_path %>
+    <%= link_to('New Extension Group', new_extension_group_path) if can?(:create, :extension_groups) %>
   </div>
   <div class="col-md-10">
     <%= paginate @extension_groups %>

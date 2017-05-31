@@ -5,6 +5,8 @@ class CdrController < ApplicationController
   skip_before_action :authenticate_user!, only: [:play]
   skip_before_action :verify_authenticity_token, only: [:play]
   def index
+    authorize! :read, :cdr
+    
     if session[:cdr_where]
       where = session[:cdr_where]
       @cdr = Cdr.new(where)
@@ -16,6 +18,7 @@ class CdrController < ApplicationController
   end
 
   def search
+    authorize! :read, :cdr
     @cdr = Cdr.new(params.require(:cdr).permit(:caller_id_name, :caller_id_number, :destination_number))
     where = {freeswitch_id: Freeswitch.from_user(current_user).pluck(:id)}
 
@@ -30,6 +33,7 @@ class CdrController < ApplicationController
   end
 
   def play
+    authorize! :read, :cdr_recording
     cdr = Cdr.where(freeswitch_id: Freeswitch.from_user(current_user).pluck(:id)).find(params[:id])
     record_pem_path = Shellwords.shellescape(cdr.freeswitch.record_pem_path)
     record_path = Shellwords.shellescape(cdr.record_path)

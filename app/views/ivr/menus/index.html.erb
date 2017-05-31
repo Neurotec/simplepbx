@@ -34,8 +34,8 @@
       <td><%= ivr_menu.digit_len %></td>
       <td><%= ivr_menu.menu_top_digits %></td>
       <td><%= link_to 'Show', ivr_menu %></td>
-      <td><%= link_to 'Edit', edit_ivr_menu_path(ivr_menu) %></td>
-      <td><%= link_to 'Destroy', ivr_menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to('Edit', edit_ivr_menu_path(ivr_menu)) if can?(:update, :ivr_menus) %></td>
+      <td><%= link_to('Destroy', ivr_menu, method: :delete, data: { confirm: 'Are you sure?' }) if can?(:delete, :ivr_menus) %></td>
     </tr>
     <% end %>
   </tbody>
@@ -45,7 +45,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <%= link_to 'New Ivr Menu', new_ivr_menu_path %>
+    <%= link_to('New Ivr Menu', new_ivr_menu_path) if can?(:create, :ivr_menus) %>
   </div>
   <div class="col-md-10">
     <%= paginate @ivr_menus %>

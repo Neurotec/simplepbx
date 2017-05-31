@@ -4,27 +4,32 @@ class EndpointRoutesController < ApplicationController
   # GET /endpoint_routes
   # GET /endpoint_routes.json
   def index
+    authorize! :read, :endpoint_routes
     @endpoint_routes = EndpointRoute.order(position: :asc).page(params[:page]).all
   end
 
   # GET /endpoint_routes/1
   # GET /endpoint_routes/1.json
   def show
+    authorize! :read, :endpoint_routes
   end
 
   # GET /endpoint_routes/new
   def new
+    authorize! :create, :endpoint_routes
     @endpoint_route = EndpointRoute.new
     @endpoint_route.outbound_routes.build
   end
 
   # GET /endpoint_routes/1/edit
   def edit
+    authorize! :update, :endpoint_routes
   end
 
   # POST /endpoint_routes
   # POST /endpoint_routes.json
   def create
+    authorize! :create, :endpoint_routes
     @endpoint_route = EndpointRoute.new(endpoint_route_params)
 
     respond_to do |format|
@@ -41,7 +46,7 @@ class EndpointRoutesController < ApplicationController
   # PATCH/PUT /endpoint_routes/1
   # PATCH/PUT /endpoint_routes/1.json
   def update
-
+    authorize! :update, :endpoint_routes
     respond_to do |format|
       if @endpoint_route.update(endpoint_route_params)
         format.html { redirect_to @endpoint_route, notice: 'Endpoint route was successfully updated.' }
@@ -56,6 +61,7 @@ class EndpointRoutesController < ApplicationController
   # DELETE /endpoint_routes/1
   # DELETE /endpoint_routes/1.json
   def destroy
+    authorize! :delete, :endpoint_routes
     @endpoint_route.destroy
     respond_to do |format|
       format.html { redirect_to endpoint_routes_url, notice: 'Endpoint route was successfully destroyed.' }

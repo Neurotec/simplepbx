@@ -4,26 +4,31 @@ class Callcenter::TiersController < ApplicationController
   # GET /callcenter/tiers
   # GET /callcenter/tiers.json
   def index
+    authorize! :read, :callcenter_tiers
     @callcenter_tiers = Callcenter::Tier.order(position: :asc).page(params[:page]).all
   end
 
   # GET /callcenter/tiers/1
   # GET /callcenter/tiers/1.json
   def show
+    authorize! :read, :callcenter_tiers
   end
 
   # GET /callcenter/tiers/new
   def new
+    authorize! :create, :callcenter_tiers
     @callcenter_tier = Callcenter::Tier.new
   end
 
   # GET /callcenter/tiers/1/edit
   def edit
+    authorize! :update, :callcenter_tiers
   end
 
   # POST /callcenter/tiers
   # POST /callcenter/tiers.json
   def create
+    authorize! :create, :callcenter_tiers
     @callcenter_tier = Callcenter::Tier.new(callcenter_tier_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class Callcenter::TiersController < ApplicationController
   # PATCH/PUT /callcenter/tiers/1
   # PATCH/PUT /callcenter/tiers/1.json
   def update
+    authorize! :update, :callcenter_tiers
     respond_to do |format|
       if @callcenter_tier.update(callcenter_tier_params)
         format.html { redirect_to @callcenter_tier, notice: 'Tier was successfully updated.' }
@@ -54,6 +60,7 @@ class Callcenter::TiersController < ApplicationController
   # DELETE /callcenter/tiers/1
   # DELETE /callcenter/tiers/1.json
   def destroy
+    authorize! :delete, :callcenter_tiers
     @callcenter_tier.destroy
     respond_to do |format|
       format.html { redirect_to callcenter_tiers_url, notice: 'Tier was successfully destroyed.' }

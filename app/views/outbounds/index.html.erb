@@ -35,8 +35,8 @@
           <% end %>
         </td>
         <td><%= link_to 'Show', outbound %></td>
-        <td><%= link_to 'Edit', edit_outbound_path(outbound) %></td>
-        <td><%= link_to 'Destroy', outbound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to('Edit', edit_outbound_path(outbound)) if can?(:update, :outbounds) %></td>
+        <td><%= link_to('Destroy', outbound, method: :delete, data: { confirm: 'Are you sure?' }) if can?(:delete, :outbounds) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Outbound', new_outbound_path %>
+<%= link_to('New Outbound', new_outbound_path) if can?(:create, :outbounds) %>

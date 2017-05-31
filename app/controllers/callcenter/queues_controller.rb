@@ -4,26 +4,31 @@ class Callcenter::QueuesController < ApplicationController
   # GET /callcenter/queues
   # GET /callcenter/queues.json
   def index
+    authorize! :read, :callcenter_queues
     @callcenter_queues = Callcenter::Queue.page(params[:page]).all
   end
 
   # GET /callcenter/queues/1
   # GET /callcenter/queues/1.json
   def show
+    authorize! :read, :callcenter_queues
   end
 
   # GET /callcenter/queues/new
   def new
+    authorize! :create, :callcenter_queues
     @callcenter_queue = Callcenter::Queue.new
   end
 
   # GET /callcenter/queues/1/edit
   def edit
+    authorize! :update, :callcenter_queues
   end
 
   # POST /callcenter/queues
   # POST /callcenter/queues.json
   def create
+    authorize! :create, :callcenter_queues
     @callcenter_queue = Callcenter::Queue.new(callcenter_queue_params)
     @callcenter_queue.freeswitch_id = nil unless current_user.freeswitches.pluck(:id).include?(@callcenter_queue.freeswitch.id)
     
@@ -41,6 +46,7 @@ class Callcenter::QueuesController < ApplicationController
   # PATCH/PUT /callcenter/queues/1
   # PATCH/PUT /callcenter/queues/1.json
   def update
+    authorize! :update, :callcenter_queues
     @callcenter_queue.freeswitch_id = nil unless current_user.freeswitches.pluck(:id).include?(@callcenter_queue.freeswitch.id)
     respond_to do |format|
       if @callcenter_queue.update(callcenter_queue_params)
@@ -56,6 +62,7 @@ class Callcenter::QueuesController < ApplicationController
   # DELETE /callcenter/queues/1
   # DELETE /callcenter/queues/1.json
   def destroy
+    authorize! :delete, :callcenter_queues
     @callcenter_queue.destroy
     respond_to do |format|
       format.html { redirect_to callcenter_queues_url, notice: 'Queue was successfully destroyed.' }

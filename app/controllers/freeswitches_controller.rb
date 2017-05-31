@@ -4,27 +4,32 @@ class FreeswitchesController < ApplicationController
   # GET /freeswitches
   # GET /freeswitches.json
   def index
+    authorize! :read, :freeswitches
     @freeswitches = Freeswitch.page(params[:page]).all
   end
 
   # GET /freeswitches/1
   # GET /freeswitches/1.json
   def show
+    authorize! :read, :freeswitches
     headers["Cache-Control"] = "no-cache"
   end
 
   # GET /freeswitches/new
   def new
+    authorize! :create, :freeswitches
     @freeswitch = Freeswitch.new
   end
 
   # GET /freeswitches/1/edit
   def edit
+    authorize! :update, :freeswitches
   end
 
   # POST /freeswitches
   # POST /freeswitches.json
   def create
+    authorize! :create, :freeswitches
     @freeswitch = Freeswitch.new(freeswitch_params)
     @freeswitch.user_id = current_user.id
 
@@ -42,6 +47,7 @@ class FreeswitchesController < ApplicationController
   # PATCH/PUT /freeswitches/1
   # PATCH/PUT /freeswitches/1.json
   def update
+    authorize! :update, :freeswitches
     respond_to do |format|
       if @freeswitch.update(freeswitch_params)
         format.html { redirect_to @freeswitch, notice: 'Freeswitch was successfully updated.' }
@@ -57,6 +63,7 @@ class FreeswitchesController < ApplicationController
   # DELETE /freeswitches/1
   # DELETE /freeswitches/1.json
   def destroy
+    authorize! :delete, :freeswitches
     @freeswitch.destroy
     respond_to do |format|
       format.html { redirect_to freeswitches_url, notice: 'Freeswitch was successfully destroyed.' }

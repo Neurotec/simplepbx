@@ -21,8 +21,8 @@
       <td><%= callcenter_queue.strategy %></td>
       <td><%= callcenter_queue.callcenter_queue_profile %></td>
       <td><%= link_to 'Show', callcenter_queue %></td>
-      <td><%= link_to 'Edit', edit_callcenter_queue_path(callcenter_queue) %></td>
-      <td><%= link_to 'Destroy', callcenter_queue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to('Edit', edit_callcenter_queue_path(callcenter_queue)) if can? :update, :callcenter_queues %></td>
+      <td><%= link_to('Destroy', callcenter_queue, method: :delete, data: { confirm: 'Are you sure?' }) if can?(:delete, :callcenter_queues) %></td>
     </tr>
     <% end %>
   </tbody>
@@ -32,7 +32,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <%= link_to 'New Callcenter Queue', new_callcenter_queue_path %>
+    <%= link_to('New Callcenter Queue', new_callcenter_queue_path) if can?(:create, :callcenter_queues) %>
   </div>
   <div class="col-md-10">
     <%= paginate @callcenter_queues %>
