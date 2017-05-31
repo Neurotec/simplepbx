@@ -1,0 +1,16 @@
+<%= simple_form_for(@group_permission) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :allow_create %>
+    <%= f.input :allow_read %>
+    <%= f.input :allow_update %>
+    <%= f.input :allow_delete %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

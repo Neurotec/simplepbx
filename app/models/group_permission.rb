@@ -1,0 +1,2 @@
+class GroupPermission < ApplicationRecord
+end

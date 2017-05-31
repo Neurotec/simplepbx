@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group_permission.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @group_permission.description %>
+</p>
+
+<p>
+  <strong>Allow create:</strong>
+  <%= @group_permission.allow_create %>
+</p>
+
+<p>
+  <strong>Allow read:</strong>
+  <%= @group_permission.allow_read %>
+</p>
+
+<p>
+  <strong>Allow update:</strong>
+  <%= @group_permission.allow_update %>
+</p>
+
+<p>
+  <strong>Allow delete:</strong>
+  <%= @group_permission.allow_delete %>
+</p>
+
+<%= link_to 'Edit', edit_group_permission_path(@group_permission) %> |
+<%= link_to 'Back', group_permissions_path %>

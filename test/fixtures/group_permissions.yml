@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: 
+  allow_create: false
+  allow_read: false
+  allow_update: false
+  allow_delete: false
+
+two:
+  name: MyString
+  description: 
+  allow_create: false
+  allow_read: false
+  allow_update: false
+  allow_delete: false

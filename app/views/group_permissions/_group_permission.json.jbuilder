@@ -1,0 +1,2 @@
+json.extract! group_permission, :id, :name, :description, :allow_create, :allow_read, :allow_update, :allow_delete, :created_at, :updated_at
+json.url group_permission_url(group_permission, format: :json)
