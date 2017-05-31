@@ -1,7 +1,24 @@
 # README
 
-Simplepbx es una interfaz de adminstracion remota para multiples Freeswitch(es).
+Simplepbx (metaswitch) es una interfaz de adminstracion remota para multiples Freeswitch(es).
 
+## CARACTERISTICAS
+
+gestion unificada para:
+
+  * Extensiones
+  * Grupos
+  * Colas 
+  * Reporteria (CDR)
+  * IVR
+  * Grabaciones (streaming)
+  
+## TODO
+
+  * auto interconexion de Freeswitch para enrutamiento, ejemplo:
+    * llamada 111:freeswitch1 debe salir por gateway2:freeswitch, automaticamente enlazar freeswitch
+	  y enrutar de freeswitch1 -> gateway2:freeswitch
+	  
 ## FREESWITCH DEPS
 
 Modulos requeridos
