@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_groups
+  resources :group_permissions
   get '/outbound_routes', to: 'outbound_routes#index', formats: 'json'
   namespace :ivr do
     resources :menus

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210210829) do
+ActiveRecord::Schema.define(version: 20170531195335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,17 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.index ["user_id"], name: "index_freeswitches_on_user_id", using: :btree
   end
 
+  create_table "group_permissions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "allow_create"
+    t.boolean  "allow_read"
+    t.boolean  "allow_update"
+    t.boolean  "allow_delete"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "groups", force: :cascade do |t|
     t.integer  "endpoint_id"
     t.string   "name"
@@ -278,6 +289,14 @@ ActiveRecord::Schema.define(version: 20170210210829) do
     t.index ["freeswitch_id"], name: "index_resource_records_on_freeswitch_id", using: :btree
   end
 
+  create_table "user_groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "group_permissions_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["group_permissions_id"], name: "index_user_groups_on_group_permissions_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -319,4 +338,5 @@ ActiveRecord::Schema.define(version: 20170210210829) do
   add_foreign_key "ivr_menus", "freeswitches"
   add_foreign_key "outbounds", "endpoints"
   add_foreign_key "resource_records", "freeswitches"
+  add_foreign_key "user_groups", "group_permissions", column: "group_permissions_id"
 end

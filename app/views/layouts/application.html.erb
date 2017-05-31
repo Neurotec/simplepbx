@@ -84,6 +84,17 @@
               </div>
             </li>
 
+	    <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Administration
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<%= link_to 'User(s)', user_registration_path, class: 'dropdown-item' %>
+                <%= link_to 'Groups(s)', user_groups_path, class: 'dropdown-item' %>
+		<%= link_to 'Permission(s)', group_permissions_path, class: 'dropdown-item' %>
+              </div>
+            </li>
+
             <div class="nav-item">
               <%= link_to 'Help', help_index_path, class: 'nav-link' %>
             </div>
