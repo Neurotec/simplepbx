@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<document type="freeswitch/xml">
+
+  
+  <X-PRE-PROCESS cmd="set" data="global_codec_prefs=PCMU,PCMA"/>
+  <X-PRE-PROCESS cmd="set" data="xml_rpc_password=simplepbx"/>
+  <X-PRE-PROCESS cmd="set" data="default_password=simplepbx"/>
+  <X-PRE-PROCESS cmd="set" data="internal_sip_port=5060"/>
+
+  
+
+  <section name="configuration" description="Various Configuration">
+    <configuration name="switch.conf" description="Core Configuration">
+      <settings>
+        <param name="colorize-console" value="true"/>
+
+        <!-- Max number of sessions to allow at any given time -->
+        <param name="max-sessions" value="1000"/>
+        <!--Most channels to create per second -->
+        <param name="sessions-per-second" value="30"/>
+
+        <!-- Default Global Log Level - value is one of debug,info,notice,warning,err,crit,alert -->
+        <param name="loglevel" value="debug"/>
+
+        <!-- RTP port range -->
+        <param name="rtp-start-port" value="16384"/>
+        <param name="rtp-end-port" value="32768"/>
+      </settings>
+    </configuration>
+    
+    <configuration name="console.conf" description="Console Logger">
+      <mappings>
+        <map name="all" value="console,debug,info,notice,warning,err,crit,alert"/>
+      </mappings>
+
+      <settings>
+        <param name="colorize" value="true"/>
+        <param name="loglevel" value="debug"/>
+      </settings>
+    </configuration>
+
+    <configuration name="modules.conf" description="Modules">
+      <modules>
+        <!-- Loggers (I'd load these first) -->
+        <load module="mod_console"/>
+        <load module="mod_logfile"/>
+
+        <!-- XML Interfaces -->
+        <load module="mod_xml_rpc"/>
+        <load module="mod_xml_curl"/>
+        
+        <!-- Event Handlers -->
+        <load module="mod_cdr_csv"/>
+        <load module="mod_event_socket"/>
+
+        <!-- Endpoints -->
+        <load module="mod_sofia"/>
+        <load module="mod_loopback"/>
+
+        <!-- Applications -->
+        <load module="mod_commands"/>
+        <load module="mod_conference"/>
+        <load module="mod_db"/>
+        <load module="mod_dptools"/>
+        <load module="mod_expr"/>
+        <load module="mod_hash"/>
+        <load module="mod_esf"/>
+
+        <!-- Dialplan Interfaces -->
+        <load module="mod_dialplan_xml"/>
+
+        <!-- Codec Interfaces -->
+
+        <!-- File Format Interfaces -->
+        <load module="mod_sndfile"/>
+        <load module="mod_native_file"/>
+
+        <!-- Third party modules -->
+        <load module="mod_json_cdr"/>
+      </modules>
+    </configuration>
+    <configuration name="acl.conf" description="Network Lists">
+      <network-lists>
+        <!--
+            These ACL's are automatically created on startup.
+
+rfc1918.auto  - RFC1918 Space
+nat.auto      - RFC1918 Excluding your local lan.
+localnet.auto - ACL for your local lan.
+loopback.auto - ACL for your local lan.
+        -->
+
+        <list name="domains" default="deny">
+        </list>
+      </network-lists>
+    </configuration>
+
+    <configuration name="json_cdr.conf" description="JSON CDR">
+      <settings>
+      </settings>
+    </configuration>
+    
+    <configuration name="xml_curl.conf" description="cURL XML Gateway">
+      <bindings>
+        <binding name="configuration">
+          <param name="gateway-url" value="http://localhost:3000/freeswitch_configurator/configuration.xml" bindings="configuration"/>
+        </binding>
+        
+        <binding name="dialplan">
+          <param name="gateway-url" value="http://localhost:3000/freeswitch_configurator/dialplan.xml" bindings="dialplan"/>
+        </binding>
+        
+        <binding name="directory">
+          <param name="gateway-url" value="http://localhost:3000/freeswitch_configurator/directory.xml" bindings="directory"/>
+        </binding>
+      </bindings>
+    </configuration>
+
+
+    <configuration name="sofia.conf" description="sofia Endpoint">
+
+      <global_settings>
+        <param name="log-level" value="0"/>
+        <!-- <param name="auto-restart" value="false"/> -->
+        <param name="debug-presence" value="0"/>
+      </global_settings>
+
+      <profiles>
+        <profile name="internal">
+          <gateways>
+            <!--  <gateway name="itsp-name"> -->
+            <!--    <param name="proxy" value="1.2.3.4"/> -->
+            <!--    <param name="register" value="false"/> -->
+            <!-- </gateway> -->
+          </gateways>
+          
+          <settings>
+            <param name="auth-calls" value="true"/>
+            <param name="apply-nat-acl" value="nat.auto"/>
+
+            <param name="debug" value="0"/>
+            <param name="sip-trace" value="yes"/>
+
+            <param name="dialplan" value="XML"/>
+            <param name="context" value="default"/>
+            <param name="codec-prefs" value="$${global_codec_prefs}"/>
+
+            <param name="rtp-ip" value="$${local_ip_v4}"/>
+            <param name="sip-ip" value="$${local_ip_v4}"/>
+            <param name="ext-rtp-ip" value="auto-nat"/>
+            <param name="ext-sip-ip" value="auto-nat"/>
+            <param name="sip-port" value="$${internal_sip_port}"/>
+          </settings>
+        </profile>
+
+      </profiles>
+
+    </configuration>
+
+  </section>
+
+
+  <section name="dialplan" description="Regex/XML Dialplan">
+    <context name="default">
+      
+      <extension name="sample">
+        <condition>
+          <action application="info"/>
+        </condition>
+      </extension>
+
+    </context>
+  </section>
+
+  <section name="directory" description="User Directory">
+    <user id="1000">
+      <params>
+        <param name="password" value="$${default_password}"/>
+      </params>
+      <variables>
+        <variable name="accountcode" value="1000"/>
+        <variable name="user_context" value="default"/>
+        <variable name="effective_caller_id_name" value="Extension 1000"/>
+        <variable name="effective_caller_id_number" value="1000"/>
+        <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+        <variable name="outbound_caller_id_number" value="$${outbound_caller_id}"/>
+      </variables>
+    </user>
+  </section>
+
+  
+
+</document>

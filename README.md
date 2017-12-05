@@ -19,7 +19,7 @@ gestion unificada para:
     * llamada 111:freeswitch1 debe salir por gateway2:freeswitch, automaticamente enlazar freeswitch
 	  y enrutar de freeswitch1 -> gateway2:freeswitch
 	  
-## FREESWITCH DEPS
+## FREESWITCH DEPENDENCIAS
 
 Modulos requeridos
 
@@ -32,11 +32,12 @@ Modulos requeridos
 # INSTALACION
 
   * clonar repositorio
+  * inicializar dependencias **bundle install**
   * configurar **config/database.yml**
-  * inicializar con **rake db:create;rake db:migrate; rake db:seed**
+  * inicializar base de datos **bundle exec rake db:create; bundle exec rake db:migrate; bundle exec rake db:seed**
   * se crea el usuario por defecto **admin@simplepbx.com:simplepbx**
   
-## CONFIGURACION PBX
+## CONFIGURACION FREESWITCH-MOD-XML-CURL
 
 Configurar el modulo **xml_curl**, reemplazar **localhost:3000** con la URL del servidor instalado:
 
@@ -85,7 +86,7 @@ Match User simplepbx_recording
  PermitUserRC no
 ~~~
 
-**Creamos comand de reproduction /usr/local/bin/simplepbx_recording**
+**Creamos comando de reproduccion /usr/local/bin/simplepbx_recording**
 
 @TODO restringir a solo carpeta de reproduccion
 ~~~bash

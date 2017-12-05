@@ -8,9 +8,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: postgres
+  username: simplepbx
   timeout: 5000
   host: localhost
+  template: template0
   
 development:
   <<: *default
